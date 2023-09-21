@@ -253,7 +253,13 @@ db.user.insertMany(
             name: "John Doe",
             phone: "+15555555555",
             address: "123 Main Street, Anytown, CA 91234",
-            email: "john.doe@example.com"
+            email: "john.doe@example.com",
+            permisos: {
+                "/user": ["3.0.0"],
+                "/book": ["3.0.0"],
+                "/loan": ["3.0.0"],
+                "/reservation": ["3.0.0"]
+            }
         },
         {
             nit: 9876543210,
@@ -262,7 +268,12 @@ db.user.insertMany(
             name: "Jane Doe",
             phone: "+15555555556",
             address: "456 Elm Street, Anytown, CA 91234",
-            email: "jane.doe@example.com"
+            email: "jane.doe@example.com",
+            permisos: {
+                "/book": ["2.0.0"],
+                "/loan": ["2.0.0"],
+                "/reservation": ["2.0.0"]
+            }
         },
         {
             nit: 1111111111,
@@ -271,7 +282,13 @@ db.user.insertMany(
             name: "Maria Garcia",
             phone: "+57555555555",
             address: "Calle 123, Bogotá, Colombia",
-            email: "maria.garcia@example.com"
+            email: "maria.garcia@example.com",
+            permisos: {
+                "/user": ["3.0.0"],
+                "/book": ["3.0.0"],
+                "/loan": ["3.0.0"],
+                "/reservation": ["3.0.0"]
+            }
         },
         {
             nit: 2222222222,
@@ -280,7 +297,12 @@ db.user.insertMany(
             name: "Juan Perez",
             phone: "+57555555556",
             address: "Carrera 123, Bogotá, Colombia",
-            email: "juan.perez@example.com"
+            email: "juan.perez@example.com",
+            permisos: {
+                "/book": ["2.0.0"],
+                "/loan": ["2.0.0"],
+                "/reservation": ["2.0.0"]
+            }
         },
         {
             nit: 3333333333,
@@ -289,7 +311,10 @@ db.user.insertMany(
             name: "Peter Parker",
             phone: "+15555555557",
             address: "789 Park Avenue, Anytown, CA 91234",
-            email: "peter.parker@example.com"
+            email: "peter.parker@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
         },
         {
             nit: 4444444444,
@@ -298,7 +323,10 @@ db.user.insertMany(
             name: "Mary Jane Watson",
             phone: "+15555555558",
             address: "1011 12th Street, Anytown, CA 91234",
-            email: "mary.jane.watson@example.com"
+            email: "mary.jane.watson@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
         },
         {
             nit: 5555555555,
@@ -307,7 +335,10 @@ db.user.insertMany(
             name: "Bruce Wayne",
             phone: "+15555555559",
             address: "2022 Wayne Manor, Gotham City, CA 91234",
-            email: "bruce.wayne@example.com"
+            email: "bruce.wayne@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
         },
         {
             nit: 6666666666,
@@ -316,7 +347,10 @@ db.user.insertMany(
             name: "Clark Kent",
             phone: "+15555555560",
             address: "3033 Daily Planet, Metropolis, CA 91234",
-            email: "clark.kent@example.com"
+            email: "clark.kent@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
         },
         {
             nit: 7777777777,
@@ -325,7 +359,10 @@ db.user.insertMany(
             name: "Diana Prince",
             phone: "+15555555561",
             address: "4044 Themyscira, CA 91234",
-            email: "diana.prince@example.com"
+            email: "diana.prince@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
         },
         {
             nit: 8888888888,
@@ -334,7 +371,10 @@ db.user.insertMany(
             name: "Tony Stark",
             phone: "+15555555562",
             address: "5055 Avengers Tower, New York City, NY 91234",
-            email: "tony.stark@example.com"
+            email: "tony.stark@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
         },
         {
             nit: 9999999999,
@@ -343,7 +383,10 @@ db.user.insertMany(
             name: "Steve Rogers",
             phone: "+15555555563",
             address: "6066 Avengers Compound, Upstate New York, NY 91234",
-            email: "steve.rogers@example.com"
+            email: "steve.rogers@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
         }
     ]
 )
@@ -372,7 +415,7 @@ db.loan.insertMany(
         {
             id: 3,
             nit_client: 3333333333,
-            id_book: 21,
+            id_book: 12,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Overdue",
@@ -381,7 +424,7 @@ db.loan.insertMany(
         {
             id: 4,
             nit_client: 4444444444,
-            id_book: 22,
+            id_book: 11,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Loan",
@@ -390,7 +433,7 @@ db.loan.insertMany(
         {
             id: 5,
             nit_client: 5555555555,
-            id_book: 23,
+            id_book: 15,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Overdue",
@@ -398,8 +441,8 @@ db.loan.insertMany(
         },
         {
             id: 6,
-            nit_client: 6666666666,
-            id_book: 24,
+            nit_client: 5555555555,
+            id_book: 15,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Loan",
@@ -408,7 +451,7 @@ db.loan.insertMany(
         {
             id: 7,
             nit_client: 7777777777,
-            id_book: 25,
+            id_book: 3,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Overdue",
@@ -417,7 +460,7 @@ db.loan.insertMany(
         {
             id: 8,
             nit_client: 8888888888,
-            id_book: 26,
+            id_book: 7,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Return",
@@ -425,8 +468,8 @@ db.loan.insertMany(
         },
         {
             id: 9,
-            nit_client: 9999999999,
-            id_book: 27,
+            nit_client: 8888888888,
+            id_book: 4,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Overdue",
@@ -435,7 +478,7 @@ db.loan.insertMany(
         {
             id: 10,
             nit_client: 1111111111,
-            id_book: 28,
+            id_book: 19,
             date_loan: "2023-09-19",
             date_return: "2023-09-26",
             status: "Overdue",
@@ -466,7 +509,7 @@ db.reservation.insertMany(
         {
             id: 3,
             nit_client: 3333333333,
-            id_book: 21,
+            id_book: 12,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Reserved"
@@ -474,7 +517,7 @@ db.reservation.insertMany(
         {
             id: 4,
             nit_client: 4444444444,
-            id_book: 22,
+            id_book: 10,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Loan"
@@ -482,7 +525,7 @@ db.reservation.insertMany(
         {
             id: 5,
             nit_client: 5555555555,
-            id_book: 23,
+            id_book: 14,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Cancelled reservation"
@@ -490,7 +533,7 @@ db.reservation.insertMany(
         {
             id: 6,
             nit_client: 6666666666,
-            id_book: 24,
+            id_book: 13,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Reserved"
@@ -498,7 +541,7 @@ db.reservation.insertMany(
         {
             id: 7,
             nit_client: 7777777777,
-            id_book: 25,
+            id_book: 7,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Reserved"
@@ -506,7 +549,7 @@ db.reservation.insertMany(
         {
             id: 8,
             nit_client: 8888888888,
-            id_book: 26,
+            id_book: 5,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Loan"
@@ -514,7 +557,7 @@ db.reservation.insertMany(
         {
             id: 9,
             nit_client: 9999999999,
-            id_book: 27,
+            id_book: 6,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Reserved"
@@ -522,7 +565,7 @@ db.reservation.insertMany(
         {
             id: 10,
             nit_client: 1111111111,
-            id_book: 28,
+            id_book: 9,
             date_reservation: "2023-09-19",
             date_end_reservation: "2023-09-26",
             status: "Cancelled reservation"
