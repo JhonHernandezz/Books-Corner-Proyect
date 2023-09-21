@@ -178,6 +178,10 @@ db.createCollection("user", {
                 email: {
                     bsonType: "string",
                     description: "email is required"
+                },
+                permisos: {
+                    bsonType: "object",
+                    description: "permisos is required"
                 }
             }
         }
