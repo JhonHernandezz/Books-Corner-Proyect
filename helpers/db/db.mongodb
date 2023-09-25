@@ -1,4 +1,14 @@
 use("Books-Corner-Proyect")
+db.createCollection("autoincrement")
+db.autoincrement.insertMany(
+    [
+        {ID: "bookid", sequenceValue: 20},
+        {ID: "loanid", sequenceValue: 10},
+        {ID: "reservationid", sequenceValue: 10}
+    ]
+)
+
+use("Books-Corner-Proyect")
 db.createCollection("book", {
     validator: {
         $jsonSchema: {
@@ -10,10 +20,11 @@ db.createCollection("book", {
                     bsonType: "objectId"
                 },
                 id: {
-                    bsonType: "number"
+                    bsonType: "int"
                 },
                 name: {
                     bsonType: "string",
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s\w\:\.\,\-]+$",
                     description: "name is required"
                 },
                 photo: {
@@ -22,6 +33,7 @@ db.createCollection("book", {
                 },
                 autor: {
                     bsonType: "string",
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s\w\:\.\,\-]+$",
                     description: "autor is required"
                 },
                 year_of_publication: {
@@ -39,6 +51,7 @@ db.createCollection("book", {
                 },
                 editorial: {
                     bsonType: "string", 
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s\w\:\.\,\-]+$",
                     description: "editorial is required"
                 },
                 status: {
@@ -61,7 +74,7 @@ db.createCollection("loan", {
         $jsonSchema: {
             bsonType: "object",
             additionalProperties: false,
-            required: ["nit_client", "id_book", "date_loan", "date_return", "status", "cost"],
+            required: ["nit_client", "date_loan", "date_return", "status", "cost"],
             properties: {
                 _id: {
                     bsonType: "objectId"
@@ -73,9 +86,8 @@ db.createCollection("loan", {
                     bsonType: "number",
                     description: "nit_client is required"
                 },
-                id_book: {
-                    bsonType: "number", 
-                    description: "id_book is required"
+                count_book: {
+                    bsonType: "array"
                 },
                 date_loan: {
                     bsonType: "string",
@@ -165,10 +177,12 @@ db.createCollection("user", {
                 },
                 name: {
                     bsonType: "string",
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑs]$",
                     description: "name is required"
                 },
                 phone: {
                     bsonType: "string",
+                    pattern: "[0-9\s\+]$",
                     description: "phone is required"
                 },
                 address: {

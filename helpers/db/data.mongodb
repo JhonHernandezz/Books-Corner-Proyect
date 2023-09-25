@@ -243,6 +243,7 @@ db.book.insertMany(
         }
     ]
 )
+
 use("Books-Corner-Proyect")
 db.user.insertMany(
     [
@@ -251,7 +252,7 @@ db.user.insertMany(
             password: "password123",
             role: "Admin",
             name: "John Doe",
-            phone: "+15555555555",
+            phone: "+15 555555555",
             address: "123 Main Street, Anytown, CA 91234",
             email: "john.doe@example.com",
             permisos: {
@@ -266,10 +267,11 @@ db.user.insertMany(
             password: "password456",
             role: "Employee",
             name: "Jane Doe",
-            phone: "+15555555556",
+            phone: "+15 555555556",
             address: "456 Elm Street, Anytown, CA 91234",
             email: "jane.doe@example.com",
             permisos: {
+                "/user": ["2.0.0"],
                 "/book": ["2.0.0"],
                 "/loan": ["2.0.0"],
                 "/reservation": ["2.0.0"]
@@ -280,7 +282,7 @@ db.user.insertMany(
             password: "password123",
             role: "Admin",
             name: "Maria Garcia",
-            phone: "+57555555555",
+            phone: "+57 555555555",
             address: "Calle 123, Bogotá, Colombia",
             email: "maria.garcia@example.com",
             permisos: {
@@ -295,10 +297,11 @@ db.user.insertMany(
             password: "password456",
             role: "Employee",
             name: "Juan Perez",
-            phone: "+57555555556",
+            phone: "+57 555555556",
             address: "Carrera 123, Bogotá, Colombia",
             email: "juan.perez@example.com",
             permisos: {
+                "/user": ["2.0.0"],
                 "/book": ["2.0.0"],
                 "/loan": ["2.0.0"],
                 "/reservation": ["2.0.0"]
@@ -309,7 +312,7 @@ db.user.insertMany(
             password: "password789",
             role: "Customer",
             name: "Peter Parker",
-            phone: "+15555555557",
+            phone: "+15 555555557",
             address: "789 Park Avenue, Anytown, CA 91234",
             email: "peter.parker@example.com",
             permisos: {
@@ -321,7 +324,7 @@ db.user.insertMany(
             password: "password012",
             role: "Customer",
             name: "Mary Jane Watson",
-            phone: "+15555555558",
+            phone: "+15 555555558",
             address: "1011 12th Street, Anytown, CA 91234",
             email: "mary.jane.watson@example.com",
             permisos: {
@@ -333,7 +336,7 @@ db.user.insertMany(
             password: "password345",
             role: "Customer",
             name: "Bruce Wayne",
-            phone: "+15555555559",
+            phone: "+15 555555559",
             address: "2022 Wayne Manor, Gotham City, CA 91234",
             email: "bruce.wayne@example.com",
             permisos: {
@@ -345,7 +348,7 @@ db.user.insertMany(
             password: "password678",
             role: "Customer",
             name: "Clark Kent",
-            phone: "+15555555560",
+            phone: "+15 555555560",
             address: "3033 Daily Planet, Metropolis, CA 91234",
             email: "clark.kent@example.com",
             permisos: {
@@ -357,7 +360,7 @@ db.user.insertMany(
             password: "password901",
             role: "Customer",
             name: "Diana Prince",
-            phone: "+15555555561",
+            phone: "+15 555555561",
             address: "4044 Themyscira, CA 91234",
             email: "diana.prince@example.com",
             permisos: {
@@ -369,7 +372,7 @@ db.user.insertMany(
             password: "password234",
             role: "Customer",
             name: "Tony Stark",
-            phone: "+15555555562",
+            phone: "+15 555555562",
             address: "5055 Avengers Tower, New York City, NY 91234",
             email: "tony.stark@example.com",
             permisos: {
@@ -381,7 +384,7 @@ db.user.insertMany(
             password: "password567",
             role: "Customer",
             name: "Steve Rogers",
-            phone: "+15555555563",
+            phone: "+15 555555563",
             address: "6066 Avengers Compound, Upstate New York, NY 91234",
             email: "steve.rogers@example.com",
             permisos: {
@@ -397,90 +400,90 @@ db.loan.insertMany(
         {
             id: 1,
             nit_client: 1234567890,
-            id_book: 19,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [3, 7],
+            date_loan: "2023-03-07",
+            date_return: "2023-03-07",
             status: "Loan",
             cost: 0
         },
         {
             id: 2,
             nit_client: 9876543210,
-            id_book: 20,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [6, 9],
+            date_loan: "2023-09-12",
+            date_return: "2023-09-12",
             status: "Return",
             cost: 0
         },
         {
             id: 3,
             nit_client: 3333333333,
-            id_book: 12,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [12, 6],
+            date_loan: "2023-12-08",
+            date_return: "2023-12-08",
             status: "Overdue",
             cost: 20000
         },
         {
             id: 4,
             nit_client: 4444444444,
-            id_book: 11,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [14, 3],
+            date_loan: "2023-07-06",
+            date_return: "2023-07-06",
             status: "Loan",
             cost: 0
         },
         {
             id: 5,
             nit_client: 5555555555,
-            id_book: 15,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [15,2],
+            date_loan: "2023-09-01",
+            date_return: "2023-09-01",
             status: "Overdue",
             cost: 30000
         },
         {
             id: 6,
             nit_client: 5555555555,
-            id_book: 15,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [15, 7, 9],
+            date_loan: "2023-11-08",
+            date_return: "2023-11-08",
             status: "Loan",
             cost: 0
         },
         {
             id: 7,
             nit_client: 7777777777,
-            id_book: 3,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [12, 5, 8],        
+            date_loan: "2024-08-06",
+            date_return: "2024-08-06",
             status: "Overdue",
             cost: 40000
         },
         {
             id: 8,
             nit_client: 8888888888,
-            id_book: 7,
+            count_book: [12],        
             date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            date_return: "2023-01-15",
             status: "Return",
             cost: 0
         },
         {
             id: 9,
             nit_client: 8888888888,
-            id_book: 4,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [14, 5, 7],        
+            date_loan: "2023-04-16",
+            date_return: "2023-04-16",
             status: "Overdue",
             cost: 50000
         },
         {
             id: 10,
             nit_client: 1111111111,
-            id_book: 19,
-            date_loan: "2023-09-19",
-            date_return: "2023-09-26",
+            count_book: [4],
+            date_loan: "2024-05-19",
+            date_return: "2024-05-19",
             status: "Overdue",
             cost: 55000
         }
@@ -494,80 +497,80 @@ db.reservation.insertMany(
             id: 1,
             nit_client: 1234567890,
             id_book: 19,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2024-06-19",
+            date_end_reservation: "2024-06-26",
             status: "Cancelled reservation"
         },
         {
             id: 2,
             nit_client: 9876543210,
             id_book: 20,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2022-12-10",
+            date_end_reservation: "2022-12-10",
             status: "Reserved"
         },
         {
             id: 3,
             nit_client: 3333333333,
             id_book: 12,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-05-19",
+            date_end_reservation: "2023-05-19",
             status: "Reserved"
         },
         {
             id: 4,
             nit_client: 4444444444,
             id_book: 10,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-05-19",
+            date_end_reservation: "2023-05-16",
             status: "Loan"
         },
         {
             id: 5,
             nit_client: 5555555555,
             id_book: 14,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-04-08",
+            date_end_reservation: "2023-04-08",
             status: "Cancelled reservation"
         },
         {
             id: 6,
             nit_client: 6666666666,
             id_book: 13,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-02-19",
+            date_end_reservation: "2023-02-26",
             status: "Reserved"
         },
         {
             id: 7,
             nit_client: 7777777777,
             id_book: 7,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-06-19",
+            date_end_reservation: "2023-06-16",
             status: "Reserved"
         },
         {
             id: 8,
             nit_client: 8888888888,
             id_book: 5,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-12-19",
+            date_end_reservation: "2023-12-26",
             status: "Loan"
         },
         {
             id: 9,
             nit_client: 9999999999,
             id_book: 6,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-07-19",
+            date_end_reservation: "2023-07-26",
             status: "Reserved"
         },
         {
             id: 10,
             nit_client: 1111111111,
             id_book: 9,
-            date_reservation: "2023-09-19",
-            date_end_reservation: "2023-09-26",
+            date_reservation: "2023-12-09",
+            date_end_reservation: "2023-12-06",
             status: "Cancelled reservation"
         }
     ]
