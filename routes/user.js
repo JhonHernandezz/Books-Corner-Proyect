@@ -3,8 +3,8 @@ import { limitPeticiones } from '../helpers/limit/limit.js'
 import { versiones } from '../helpers/config/variables.js'
 import passport from '../helpers/token/Passport.js'
 
-import { deleteUser, getANameUser, getAllUser, getIDUser, postUserCustomer, postUserEmployee, putUser } from '../version/V3/user.js'
-import { getNameUserEmployee, getAllUserEmploye, getIDUserEmployee, postUserCustomerEmployee, putUserEmployee } from '../version/V2/user.js'
+import { deleteUser, getANameUser, getAllUser, getConsultarIDUser, getIDUser, postUserCustomer, postUserEmployee, putUser } from '../version/V3/user.js'
+import { getNameUserEmployee, getAllUserEmploye, getIDUserEmployee, postUserCustomerEmployee, putUserEmployee, getConsultarIDUserEmployee } from '../version/V2/user.js'
 
 import { validateUser } from '../helpers/validator/user.js'
 
@@ -16,9 +16,14 @@ storageUser.get("/", versiones({
     "2.0.0": getAllUserEmploye
 }))
 
-storageUser.get("/id/:id", versiones({
+storageUser.get("/id", versiones({
     "3.0.0": getIDUser,
     "2.0.0": getIDUserEmployee
+}))
+
+storageUser.get("/consultar/id/:nit", versiones({
+    "3.0.0": getConsultarIDUser,
+    "2.0.0": getConsultarIDUserEmployee
 }))
 
 storageUser.get("/name/:name", versiones({

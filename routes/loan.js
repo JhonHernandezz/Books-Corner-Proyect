@@ -4,21 +4,26 @@ import { versiones } from '../helpers/config/variables.js'
 import passport from '../helpers/token/Passport.js'
 
 import { getAllCustomer } from '../version/V1/customer.js'
-import { deleteLoan, getAllLoan, getLoanDate, getLoanReturnDate, getNitLoan, getStateLoan, postLoan, putLoan } from '../version/V3/loan.js'
-import { getAllLoanEmployee, getLoanDateEmployee, getLoanReturnDateEmployee, getNitLoanEmployee, getStateLoanEmployee, postLoanEmployee, putLoanEmployee } from '../version/V2/loan.js'
+import { deleteLoan, getAllLoan, getIdLoan, getLoanDate, getLoanReturnDate, getNitLoan, getStateLoan, postLoan, putLoan } from '../version/V3/loan.js'
+import { getAllLoanEmployee, getIdLoanEmployee, getLoanDateEmployee, getLoanReturnDateEmployee, getNitLoanEmployee, getStateLoanEmployee, postLoanEmployee, putLoanEmployee } from '../version/V2/loan.js'
 
 import { validateLoan } from '../helpers/validator/loan.js'
 
 let storageLoan = Router()
 storageLoan.use(limitPeticiones(), passport.authenticate("bearer", {session: false}))
 
-storageLoan.get("/bookCustomer/:nit", versiones({
+storageLoan.get("/bookCustomer/", versiones({
     "1.0.0": getAllCustomer
 }))
 
 storageLoan.get("/getAllLoan", versiones({
     "3.0.0": getAllLoan,
     "2.0.0": getAllLoanEmployee
+}))
+
+storageLoan.get("/getIdLoan/:id", versiones({
+    "3.0.0": getIdLoan,
+    "2.0.0": getIdLoanEmployee
 }))
 
 storageLoan.get("/getNitLoan/:nit", versiones({
@@ -54,5 +59,6 @@ storageLoan.put("/update/:id", validateLoan, versiones({
 storageLoan.delete("/delete/:id", versiones({
     "3.0.0": deleteLoan
 }))
+
 
 export default storageLoan;
