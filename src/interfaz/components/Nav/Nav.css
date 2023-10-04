@@ -75,7 +75,7 @@ body {
     font-family: "Mooli";
 }
 
-.Role{
+.Role {
     width: 100%;
     position: absolute;
     color: white;
@@ -139,6 +139,7 @@ body {
     transition-duration: 400ms;
     transition-property: width, left;
 }
+
 /* ----------------------- */
 
 /* Boton Salir */
@@ -276,7 +277,7 @@ button:active .circle {
     position: absolute;
     right: 30px;
     top: 10px;
-    color: white;
+    color: white !important;
     background-color: transparent;
     border: none;
 }
@@ -359,50 +360,56 @@ button:active .circle {
         margin-top: 110px;
     }
 
-    .contenedorApartados{
+    .contenedorApartados {
         height: 55% !important;
     }
 
-    .navUsuario{
+    .navUsuario {
         position: fixed;
         width: 10%;
         height: 100vh;
     }
 
-    .logoUser{
+    .logoUser {
         display: none;
     }
 
-    .wrapperUser{
+    .wrapperUser {
+        justify-content: center;
         background-color: white;
-        background-color: red;
-        width: 100%;
+        border-right: 1px solid #242526;
         position: absolute;
         display: flex;
-        justify-content: center;
     }
 
     .wrapperUser .btn,
-    #close-btn-inicio-admin:checked~.btn.menu-btn-inicio-admin{
-        background-color: #242526 !important;
-        color: red;
-        width: 20px;
+    #close-btn-inicio-admin:checked~.btn.menu-btn-inicio-admin {
+        color: #242526 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 10px 10px transparent;
+    }
+
+    .wrapperUser .btn,
+    #close-btn-inicio-admin:checked~.btn.menu-btn-inicio-admin:hover {
+        color: #242526 !important;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .contenedorInformacion{
+    .contentUser {
         width: 100% !important;
     }
 
-    .contentUser{
-        width: 100% !important;
-    }
-
-    .funcionesUser{
+    .funcionesUser {
         width: 100%;
-        background-color: red;
+    }
+
+    .contenedorInformacion {
+        margin-top: 50px;
+        width: calc(100% - 10%) !important;
     }
 
 }
@@ -426,7 +433,7 @@ button:active .circle {
     font-weight: 600;
 }
 
-.contenedorInformacion{
+.contenedorInformacion {
     position: absolute;
     width: calc(100% - 250px);
     height: 100vh;
@@ -449,11 +456,11 @@ button:active .circle {
     width: 100%;
     height: var(--height-of-loader);
     border-radius: 30px;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     position: relative;
-  }
-  
-  .loader::before {
+}
+
+.loader::before {
     content: "";
     position: absolute;
     background: var(--loader-color);
@@ -464,17 +471,30 @@ button:active .circle {
     border-radius: 30px;
     animation: moving 1s ease-in-out infinite;
     ;
-  }
-  
-  @keyframes moving {
+}
+
+@keyframes moving {
     50% {
-      width: 100%;
+        width: 100%;
     }
-  
+
     100% {
-      width: 0;
-      right: 0;
-      left: unset;
+        width: 0;
+        right: 0;
+        left: unset;
     }
-  }
+}
+
 /* ----- */
+
+@media (max-width: 630px){
+    .contenedorInformacion h1{
+        font-size: 450%;
+    }
+}
+
+@media (max-width: 430px){
+    .contenedorInformacion h1{
+        font-size: 300%;
+    }
+}
