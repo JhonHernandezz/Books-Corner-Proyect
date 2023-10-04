@@ -1,0 +1,407 @@
+.contentUpdate {
+    width: 80%;
+    height: auto;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.formAddAndPut>.input-container:nth-last-child(8) {
+    width: 200px;
+}
+
+.formAddAndPut>.input-container:nth-last-child(7) {
+    width: 320px;
+}
+
+.formAddAndPut>.input-container:nth-last-child(6) {
+    width: 320px;
+}
+
+.formAddAndPut>.input-container:nth-last-child(5) {
+    width: 420px;
+}
+
+.formAddAndPut>.input-container:nth-last-child(4) {
+    width: 420px;
+}
+
+.formAddAndPut {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-container {
+    width: 330px;
+    margin: 10px;
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    margin-top: 20px;
+    border: 2px solid #0B2447;
+    border-top: none;
+    border-bottom: none;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    box-shadow: 7px 7px 0px 0px #0B2447;
+    transition: all 0.5s;
+}
+
+.input:focus {
+    box-shadow: none;
+    transition: all 0.5s;
+}
+
+.label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #0B2447;
+    transition: all 0.5s;
+    transform: scale(0);
+    z-index: -1;
+}
+
+.input-container .topline {
+    position: absolute;
+    content: "";
+    background-color: #0B2447;
+    width: 0%;
+    height: 2px;
+    right: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.input-container .underline {
+    position: absolute;
+    content: "";
+    background-color: #0B2447;
+    width: 0%;
+    height: 2px;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus~.topline {
+    width: 35%;
+    transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus~.underline {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.input-container input[type="text"]:focus~.label {
+    top: -10px;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+
+.input-container input[type="number"]:focus~.topline {
+    width: 35%;
+    transition: all 0.5s;
+}
+
+.input-container input[type="number"]:focus~.underline {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.input-container input[type="number"]:focus~.label {
+    top: -10px;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+
+.input-container input[type="email"]:focus~.topline {
+    width: 35%;
+    transition: all 0.5s;
+}
+
+.input-container input[type="email"]:focus~.underline {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.input-container input[type="email"]:focus~.label {
+    top: -10px;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+
+.input-container select {
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    margin-top: 20px;
+    border: 2px solid #0B2447;
+    border-top: none;
+    border-bottom: none;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    box-shadow: 7px 7px 0px 0px #0B2447;
+    transition: all 0.5s;
+}
+
+.input-container select:focus {
+    box-shadow: none;
+    transition: all 0.5s;
+}
+
+.contenedorBoton {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.contenedorBotonSalirUser {
+    margin: -54px;
+    width: 100%;
+}
+
+.optionSend {
+    font-weight: bold;
+    margin-left: 26%;
+    padding: 10px;
+    width: 20%;
+    display: block;
+}
+
+.optionExit {
+    border: 1px solid black;
+    font-weight: bold;
+    margin-left: 50%;
+    padding: 10px;
+    width: 20%;
+    display: block;
+}
+
+/* Boton Enviar */
+.optionSend,
+.optionSend::after {
+    padding: 10px 50px;
+    border: 1px solid black;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    position: relative;
+}
+
+.optionSend::after {
+    border: 1px solid black;
+
+    --move1: inset(50% 50% 50% 50%);
+    --move2: inset(31% 0 40% 0);
+    --move3: inset(39% 0 15% 0);
+    --move4: inset(45% 0 40% 0);
+    --move5: inset(45% 0 6% 0);
+    --move6: inset(14% 0 61% 0);
+    clip-path: var(--move1);
+    content: 'SEND';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+}
+
+.optionSend:hover::after {
+    animation: glitch_4011 1s;
+    text-shadow: 10 10px 10px black;
+    animation-timing-function: steps(2, end);
+    text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+    background-color: transparent;
+    border: 3px solid rgb(0, 255, 213);
+}
+
+.optionSend:hover {
+    text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+}
+
+.optionSend:hover {
+    background-color: transparent;
+    border: 1px solid rgb(0, 255, 213);
+    box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+}
+
+@keyframes glitch_4011 {
+    0% {
+        clip-path: var(--move1);
+        transform: translate(0px, -10px);
+    }
+
+    10% {
+        clip-path: var(--move2);
+        transform: translate(-10px, 10px);
+    }
+
+    20% {
+        clip-path: var(--move3);
+        transform: translate(10px, 0px);
+    }
+
+    30% {
+        clip-path: var(--move4);
+        transform: translate(-10px, 10px);
+    }
+
+    40% {
+        clip-path: var(--move5);
+        transform: translate(10px, -10px);
+    }
+
+    50% {
+        clip-path: var(--move6);
+        transform: translate(-10px, 10px);
+    }
+
+    60% {
+        clip-path: var(--move1);
+        transform: translate(10px, -10px);
+    }
+
+    70% {
+        clip-path: var(--move3);
+        transform: translate(-10px, 10px);
+    }
+
+    80% {
+        clip-path: var(--move2);
+        transform: translate(10px, -10px);
+    }
+
+    90% {
+        clip-path: var(--move4);
+        transform: translate(-10px, 10px);
+    }
+
+    100% {
+        clip-path: var(--move1);
+        transform: translate(0);
+    }
+}
+
+/* ------------ */
+
+/* Boton salir */
+.optionExit,
+.optionExit::after {
+    padding: 10px 50px;
+    border: 1px solid black;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    position: relative;
+}
+
+.optionExit::after {
+    border: 1px solid black;
+
+    --move1: inset(50% 50% 50% 50%);
+    --move2: inset(31% 0 40% 0);
+    --move3: inset(39% 0 15% 0);
+    --move4: inset(45% 0 40% 0);
+    --move5: inset(45% 0 6% 0);
+    --move6: inset(14% 0 61% 0);
+    clip-path: var(--move1);
+    content: 'EXIT';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+}
+
+.optionExit:hover::after {
+    animation: glitch_4011 1s;
+    text-shadow: 10 10px 10px black;
+    animation-timing-function: steps(2, end);
+    text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+    background-color: transparent;
+    border: 3px solid rgb(0, 255, 213);
+}
+
+.optionExit:hover {
+    text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+}
+
+.optionExit:hover {
+    background-color: transparent;
+    border: 1px solid rgb(0, 255, 213);
+    box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+}
+
+@keyframes glitch_4011 {
+    0% {
+        clip-path: var(--move1);
+        transform: translate(0px, -10px);
+    }
+
+    10% {
+        clip-path: var(--move2);
+        transform: translate(-10px, 10px);
+    }
+
+    20% {
+        clip-path: var(--move3);
+        transform: translate(10px, 0px);
+    }
+
+    30% {
+        clip-path: var(--move4);
+        transform: translate(-10px, 10px);
+    }
+
+    40% {
+        clip-path: var(--move5);
+        transform: translate(10px, -10px);
+    }
+
+    50% {
+        clip-path: var(--move6);
+        transform: translate(-10px, 10px);
+    }
+
+    60% {
+        clip-path: var(--move1);
+        transform: translate(10px, -10px);
+    }
+
+    70% {
+        clip-path: var(--move3);
+        transform: translate(-10px, 10px);
+    }
+
+    80% {
+        clip-path: var(--move2);
+        transform: translate(10px, -10px);
+    }
+
+    90% {
+        clip-path: var(--move4);
+        transform: translate(-10px, 10px);
+    }
+
+    100% {
+        clip-path: var(--move1);
+        transform: translate(0);
+    }
+}

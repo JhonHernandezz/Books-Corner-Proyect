@@ -13,6 +13,39 @@ export let getAllLoan = async(req, res) => {
                     $project: {
                         _id: 0
                     }
+                },
+                {
+                    $sort: {
+                        id: -1
+                    }
+                }
+            ]
+        ).toArray()
+
+        res.send(data)
+
+    } catch (error) {
+        res.status(200).send({status: 204, message: "Error al traer los datos"})
+    }
+}
+
+export let getIdLoan = async(req, res) => {
+    try {
+        let id = req.params.id
+        id = parseInt(id)
+
+        let tabla = db.collection("loan")
+        let data = await tabla.aggregate(
+            [
+                {
+                    $match: {
+                        id: id
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0
+                    }
                 }
             ]
         ).toArray()
@@ -133,14 +166,21 @@ export let getStateLoan = async(req, res) => {
     }
 }
 
+/*
+    {
+        "nit_client": 1111111111,
+        "count_book": [4],
+        "date_return": "2024-05-19",
+        "status": "Loan",
+        "cost": 0
+    }
+*/
 export let postLoan = async(req, res) => {
     try {
-        const error = validationResult(req);
-        if (!error.isEmpty()) return res.status(200).json({ status: 400, message: error.errors[0].msg });
-
-        if(Object.keys(req.body).length === 0) return res.status(200).send({status: 203, message: 'Enviar toda la data'})
 
         let nitClient = req.body.nit_client
+        nitClient = parseInt(nitClient)
+
         let tabla_user = db.collection("user")
 
         let compararNit = await tabla_user.findOne(
@@ -155,52 +195,69 @@ export let postLoan = async(req, res) => {
 
         let id_book = req.body.count_book
         const nonExistentBooks = [];
-        const countBookNotExistent = []
-        
+
         for (let i = 0; i < id_book.length; i++) {
             const bookId = id_book[i];
-            const book = await tabla_book.findOne({ id: bookId });
-
+            const book = await tabla_book.findOne({id: bookId});
+            
             if (!book) nonExistentBooks.push(bookId);
-            else if (book.quantity > 0) {
-                let quitarCantidad = Math.max(book.quantity - 1, 0);
-        
-                await tabla_book.updateOne(
-                    { id: bookId },
-                    { $set: { quantity: quitarCantidad } },
-                );
-            }
-            else countBookNotExistent.push(bookId);
         }
 
         if (nonExistentBooks.length > 0) return res.status(200).send({ status: 204, message: "Los libros con los siguientes ID " + nonExistentBooks + " No existen"});
 
+        const countBookNotExistent = [];
+        for (let i = 0; i < id_book.length; i++) {
+            const bookId = id_book[i];
+            const book = await tabla_book.findOne({id: bookId});
+            
+            if(book.quantity === 0) countBookNotExistent.push(bookId);
+        }
+
         if (countBookNotExistent.length > 0) return res.status(200).send({ status: 204, message: "No hay la cantidad suficiente de existencia del libro " + countBookNotExistent });
+ 
+        for (let i = 0; i < id_book.length; i++) {
+            const bookId = parseInt(id_book[i]);
+            const book = await tabla_book.findOne({ id: bookId });
+            
+            let quitarCantidad = Math.max(book.quantity - 1, 0);
+             await tabla_book.updateOne(
+                 { id: bookId },
+                 { $set: { quantity: quitarCantidad } },
+            );
+        }
 
         let loan = new Date()
-        let date = String(`${loan.getFullYear()}-0${loan.getMonth() + 1}-${loan.getDate()}`)
+        let date = loan.toLocaleDateString('en-CA')
         
         let newID = await autoIncrement('loan')
+        let nit = parseInt(req.body.nit_client)
+        let count = req.body.count_book
+        let date_Loan = date
+        let date_Return = req.body.date_return
+        let statu = req.body.status
+        let cost = parseInt(req.body.cost)
 
         let tabla_load = db.collection('loan')
         await tabla_load.insertOne({
             id: newID,
-            date_loan: date,
-            ...req.body
+            nit_client: nit,
+            count_book: count,
+            date_loan: date_Loan,
+            date_return: date_Return,
+            status: statu,
+            cost: cost
         })
 
         res.status(200).send({status: 201, message: "Registro creado con exito"})
 
     } catch (error) {
-        res.status(200).send({status: 203, message: "Error en los datos al momento de ingresar el registro"})
+        res.status(200).send({status: 203, message: error.message})
     }
 }
 
 export let putLoan = async(req, res) => {
     try {
-        const error = validationResult(req);
-        if (!error.isEmpty()) return res.status(200).json({ status: 400, message: error.errors[0].msg });
-
+        
         let id = req.params.id
         id = parseInt(id)
 
@@ -213,7 +270,7 @@ export let putLoan = async(req, res) => {
             let id_book = req.body.count_book
             
             for (let i = 0; i < id_book.length; i++) {
-                const bookId = id_book[i];
+                const bookId = parseInt(id_book[i]);
                 const book = await tabla_book.findOne({ id: bookId });
 
                 let sumarCantidad = book.quantity + 1
@@ -223,16 +280,14 @@ export let putLoan = async(req, res) => {
                     { $set: { quantity: sumarCantidad } },
                 );
             }
-
         }
 
-        let loan = new Date()
-        let date = String(`${loan.getFullYear()}-0${loan.getMonth() + 1}-${loan.getDate()}`)
+        let cost = parseInt(req.body.cost)
 
         let collection = db.collection("loan")
         await collection.updateOne(
             { id: id },
-            { $set: {id: id, date_loan: date, ...req.body } }
+            { $set: {...req.body, cost: cost} }
         )
 
         res.status(200).send({status: 200, message: "Registro actualizado exitosamente"})

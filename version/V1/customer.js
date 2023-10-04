@@ -2,52 +2,48 @@ import { con } from "../../helpers/config/connect.js";
 
 let db = await con()
 
-export let getAllCustomer = async(req, res) => {
+export let getAllCustomer = async (req, res) => {
     try {
-        let nit = req.params.nit
-        nit = parseInt(nit)
+        let { NIT } = req.data.payload
 
-        let tabla = db.collection("user")
-        let data = await tabla.aggregate(
-            [
-                {
-                    $match: {
-                        nit: nit
-                    }
+        let tabla = db.collection("loan")
+        let data = await tabla.aggregate([
+            {
+                $match: {
+                    nit_client: NIT,
                 },
-                {
-                    $lookup: {
-                    from: "loan",
-                    localField: "nit",
-                    foreignField: "nit_client",
-                    as: "fk_user_loan"
-                    }
-                },
-                {
-                    $lookup: {
+            },
+            {
+                $unwind: "$count_book",
+            },
+            {
+                $lookup: {
                     from: "book",
-                    localField: "fk_user_loan.count_book",
+                    localField: "count_book",
                     foreignField: "id",
-                    as: "fk_loan_book"
-                    }
+                    as: "fk_loan_book",
                 },
-                {
-                    $project: {
-                        _id: 0,
-                        nit: 1,
-                        name: 1,
-                        "fk_user_loan.count_book": 1,
-                        "fk_loan_book.name": 1,
-                        "fk_loan_book.photo": 1,
-                        "fk_loan_book.autor": 1,
-                        "fk_loan_book.year_of_publication": 1,
-                        "fk_loan_book.categorie": 1,
-                        "fk_loan_book.sinopsis": 1,
-                        "fk_loan_book.editorial": 1,
-                    }
+            },
+            {
+                $group: {
+                    _id: "$id",
+                    nit_client: { $first: "$nit_client" },
+                    date_loan: { $first: "$date_loan" },
+                    date_return: { $first: "$date_return" },
+                    status: { $first: "$status" },
+                    cost: { $first: "$cost" },
+                    count_book: { $push: "$count_book" },
+                    fk_loan_book: { $push: "$fk_loan_book" }
                 }
-            ]
-        ).toArray()
+            },
+            {
+                $sort:{
+                    id: 1
+                }
+            }
+        ]).toArray();
+        
+
 
         res.send(data)
 

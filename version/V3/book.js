@@ -13,6 +13,40 @@ export let getAllBook = async(req, res) => {
                     $project: {
                         _id: 0
                     }
+                },
+                {
+                    $sort: {
+                        id: 1
+                    }
+                }
+            ]
+        ).toArray()
+
+        res.send(data)
+
+    } catch (error) {
+        res.status(200).send({status: 204, message: "Error al traer los datos"})
+    }
+}
+
+export let getIDBook = async(req, res) => {
+    try {
+
+        let id = req.params.id
+        id = parseInt(id)
+
+        let tabla = db.collection("book")
+        let data = await tabla.aggregate(
+            [
+                {
+                    $match: {
+                        id: id
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0
+                    }
                 }
             ]
         ).toArray()
@@ -27,7 +61,6 @@ export let getAllBook = async(req, res) => {
 export let getNameBook = async(req, res) => {
     try {
         let name = req.params.name
-        console.log(name);
 
         let tabla = db.collection("book")
         let data = await tabla.aggregate(
@@ -133,10 +166,32 @@ export let getEditorialBook = async(req, res) => {
     }
 }
 
+/*
+    {
+        "name": "El Señor de los Anillos: La Comunidad del Anillo",
+        "photo": "https://th.bing.com/th/id/R.d60f3156fb891e7a61332ffa0d60c8d2?rik=ScDaV7tU6T804g&pid=ImgRaw&r=0",
+        "autor": "J.R.R. Tolkien",
+        "year_of_publication": "1954",
+        "categorie": "Fantasia",
+        "sinopsis": "El Señor de los Anillos es una trilogía de novelas de fantasía escrita por el filólogo y escritor británico J. R. R. Tolkien. La historia se desarrolla en la Tierra Media, un continente ficticio poblado por elfos, enanos, hobbits y hombres. La trilogía narra el viaje del hobbit Frodo Bolsón para destruir el Anillo Único, una poderosa arma forjada por el Señor Oscuro Sauron.",
+        "editorial": "HarperCollins",
+        "status": "New",
+        "quantity": 10
+    }
+*/
 export const postBook = async(req, res) => {
     try {
-        const error = validationResult(req);
-        if (!error.isEmpty()) return res.status(200).json({ status: 400, message: error.errors[0].msg });
+
+        let name = req.body.name
+        let photo = req.body.photo
+        let autor = req.body.autor
+        let yearOfPublication = req.body.yearOfPublication
+        let categorie = req.body.categorie
+        let sinopsis = req.body.sinopsis
+        let editorial = req.body.editorial
+        let status = req.body.status
+        let quantity = req.body.quantity
+        quantity = parseInt(quantity)
 
         let tabla = await db.collection("book")
 
@@ -147,7 +202,15 @@ export const postBook = async(req, res) => {
         await tabla.insertOne(
             {
                 id: newID,
-                ...req.body
+                name: name,
+                photo: photo,
+                autor: autor,
+                year_of_publication: yearOfPublication,
+                categorie: categorie,
+                sinopsis: sinopsis,
+                editorial: editorial,
+                status: status,
+                quantity: quantity
             }
         )
 
@@ -160,16 +223,17 @@ export const postBook = async(req, res) => {
 
 export let putBook = async(req, res) => {
     try {
-        const error = validationResult(req);
-        if (!error.isEmpty()) return res.status(200).json({ status: 400, message: error.errors[0].msg });
-
+     
         let id = req.params.id
         id = parseInt(id)
+
+        let quantity = req.body.quantity
+        quantity = parseInt(quantity)
 
         let collection = db.collection("book")
         let respuesta = await collection.updateOne(
             { id: id },
-            { $set: req.body }
+            { $set: {...req.body, quantity: quantity} }
         )
 
         res.status(200).send({status: 200, message: "Registro actualizado exitosamente"})

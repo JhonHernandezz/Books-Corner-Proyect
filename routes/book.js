@@ -3,8 +3,8 @@ import { versiones } from "../helpers/config/variables.js";
 import { limitPeticiones } from "../helpers/limit/limit.js";
 import passport from '../helpers/token/Passport.js'
 
-import { deleteBook, getAllBook, getAuthorBook, getCategorieBook, getEditorialBook, getNameBook, postBook, putBook } from "../version/V3/book.js";
-import { getAllBookEmployee, getCategorieBookEmployee, getNameBookEmployee, postBookEmployee, putBookEmployee } from "../version/V2/book.js";
+import { deleteBook, getAllBook, getAuthorBook, getCategorieBook, getEditorialBook, getIDBook, getNameBook, postBook, putBook } from "../version/V3/book.js";
+import { getAllBookEmployee, getCategorieBookEmployee, getIDBookEmployee, getNameBookEmployee, postBookEmployee, putBookEmployee } from "../version/V2/book.js";
 
 import { validateBook } from "../helpers/validator/book.js";
 
@@ -14,6 +14,11 @@ storageBook.use(limitPeticiones(), passport.authenticate("bearer", {session: fal
 storageBook.get("/", versiones({
     "3.0.0": getAllBook,
     "2.0.0": getAllBookEmployee
+}))
+
+storageBook.get("/id/:id", versiones({
+    "3.0.0": getIDBook,
+    "2.0.0": getIDBookEmployee
 }))
 
 storageBook.get("/name/:name", versiones({
