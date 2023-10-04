@@ -45,7 +45,7 @@ export default function Update({ id }) {
     setCountBook(countBookArray)
   }
 
-  const handleActualizar = async(e) => {
+  const handleActualizar = async (e) => {
     e.preventDefault()
 
     try {
@@ -58,9 +58,9 @@ export default function Update({ id }) {
         },
         body: JSON.stringify({ nit_client, count_book, date_loan, date_return, status, cost })
       }
-  
+
       let respuesta = await (await fetch(`http://${url.hostname}:${url.port}/loan/update/${id}`, config)).json()
-       
+
       if (respuesta.status === 200) {
         alert('Registro actualizado con éxito.')
         window.location.reload()
@@ -98,7 +98,7 @@ export default function Update({ id }) {
         </div>
 
         <div className="input-container">
-          <input className="input" type="date" name="date_loan" value={date_loan} onChange={(e) => setDateLoan(e.target.value)} required/>
+          <input className="input" type="date" name="date_loan" value={date_loan} onChange={(e) => setDateLoan(e.target.value)} required />
           <label className="label" htmlFor="fecha">Enter Date Loan</label>
           <div className="topline"></div>
           <div className="underline"></div>
@@ -112,8 +112,12 @@ export default function Update({ id }) {
         </div>
 
         <div className="input-container">
-          <input className="input" type="text" name="status" value={status} onChange={(e) => setStatus(e.target.value)} required />
-          <label className="label" htmlFor="fecha">Enter Status</label>
+          <select className="input" name="status" value={status} onChange={(e) => setStatus(e.target.value)}>
+            <option value="">Select a status</option>
+            <option value="Return">Return</option>
+            <option value="Overdue">Overdue</option>
+          </select>
+          <label className="label" htmlFor="select">Select a status</label>
           <div className="topline"></div>
           <div className="underline"></div>
         </div>

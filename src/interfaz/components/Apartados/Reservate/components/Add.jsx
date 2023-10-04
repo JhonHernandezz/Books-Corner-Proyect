@@ -78,8 +78,6 @@ export default function Add() {
                     <select className="input" name="status" value={status} onChange={(e) => setStatus(e.target.value)}>
                         <option value="">Select a status</option>
                         <option value="Reserved">Reserved</option>
-                        <option value="Cancelled reservation">Cancelled reservation</option>
-                        <option value="Loan">Loan</option>
                     </select>
                     <label className="label" htmlFor="select">Select a status</label>
                     <div className="topline"></div>
