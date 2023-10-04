@@ -1,0 +1,61 @@
+.card-about {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 280px;
+    height: 380px;
+    background: rgba(10, 10, 10, 0.8);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.card-about::before,
+.card-about::after {
+    position: absolute;
+    content: "";
+    width: 20%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: rgb(54, 35, 35);
+    transition: all 0.5s;
+}
+
+.card-about::before {
+    top: 0;
+    right: 0;
+    border-radius: 0 15px 0 100%;
+}
+
+.card-about::after {
+    bottom: 0;
+    left: 0;
+    word-break: break-all;
+    border-radius: 0 100% 0 15px;
+}
+
+.card-about:hover::before,
+.card-about:hover:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transition: all 0.5s;
+}
+
+.iconosAbout{
+    font-size: 50px;
+    color: white;
+}
+
+.tituloAbout{
+    margin-top: 20px;
+    color: white;
+}
