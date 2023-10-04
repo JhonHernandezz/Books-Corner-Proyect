@@ -17,6 +17,29 @@ export const getAllReservationEmployee = async(req, res) => {
     }
 }
 
+export const getConsultarIdReservationEmployee = async(req, res) => {
+    try {
+
+        let id = parseInt(req.params.id)
+
+        let tabla = db.collection("reservation")
+        let data = await tabla.aggregate(
+            [
+                {
+                    $match: {
+                        id: id
+                    }
+                }
+            ]
+        ).toArray();
+
+        res.send(data)
+        
+    } catch (error) {
+        res.status(200).send({status: 204, message: "Error al traer los datos"})
+    }
+}
+
 export const getNITReservationEmployee = async(req, res) => {
     try {
         let nit = req.params.nit
@@ -99,6 +122,14 @@ export const getStatusReservationEmployee = async(req, res) => {
     }
 }
 
+/*
+    {
+        "nit_client": 1234567890,
+        "id_book": 19,
+        "date_end_reservation": "2024-06-26",
+        "status": "Reserved"
+    }
+*/
 export let postReservationEmployee = async(req, res) => {
     try {
         const error = validationResult(req);

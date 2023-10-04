@@ -57,6 +57,35 @@ export let getIDUserEmployee = async(req, res) => {
     }
 }
 
+export let getConsultarIDUserEmployee = async(req, res) => {
+    try {
+        let NIT = req.params.nit
+        NIT = parseInt(NIT)
+
+        let tabla = db.collection("user")
+        let data = await tabla.aggregate(
+            [
+                {
+                    $match: {
+                        nit: NIT
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        permisos: 0
+                    }
+                }
+            ]
+        ).toArray();
+
+        res.send(data)
+        
+    } catch (error) {
+        res.status(200).send({status: 204, message: "Error al traer los datos"})
+    }
+}
+
 export let getNameUserEmployee = async(req, res) => {
     try {
         let name = req.params.name
@@ -85,6 +114,16 @@ export let getNameUserEmployee = async(req, res) => {
     }
 }
 
+/*
+    {
+        "nit": 1234667,
+        "password": "123.0.",
+        "name": "Jhon Hernandez",
+        "phone": "+57 3005559677",
+        "address": "Calle 11B # 1A - 20",
+        "email": "Jhon.1899@gmail"
+    }
+*/
 export let postUserCustomerEmployee = async(req, res) => {
     try {
         const error = validationResult(req);
@@ -94,7 +133,7 @@ export let postUserCustomerEmployee = async(req, res) => {
 
         if(Object.keys(req.body).length === 0) return res.status(200).send({status: 203, message: 'Enviar toda la data'})
 
-        let NIT = req.body.nit
+        let NIT = parseInt(req.body.nit)
         let ROL = "Customer"
         let PERMISOS = {
             "/loan": ["1.0.0"]
@@ -108,10 +147,24 @@ export let postUserCustomerEmployee = async(req, res) => {
 
         if (consultarNIT) return res.status(200).send({status: 200, message: 'Este usuario ya existe'})
 
+        let role = req.body.role
+        let nit = parseInt(req.body.nit)
+
+        let Password = req.body.password
+        let Name = req.body.name
+        let Phone = req.body.phone
+        let Address = req.body.address
+        let Email = req.body.email
+
         await tabla.insertOne(
             {
-                role: ROL,
-                ...req.body,
+                role: role,
+                nit: nit,
+                password: Password,
+                name: Name,
+                phone: Phone,
+                address: Address,
+                email: Email,
                 permisos: PERMISOS
             }
         )
