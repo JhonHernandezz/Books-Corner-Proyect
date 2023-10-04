@@ -8,7 +8,38 @@ let db = await con()
 export const getAllReservation = async(req, res) => {
     try {
         let tabla = db.collection("reservation")
-        let data = await tabla.find().toArray();
+        let data = await tabla.aggregate(
+            [
+                {
+                    $sort:{
+                        id: -1
+                    }
+                }
+            ]
+        ).toArray();
+
+        res.send(data)
+        
+    } catch (error) {
+        res.status(200).send({status: 204, message: "Error al traer los datos"})
+    }
+}
+
+export const getConsultarIdReservation = async(req, res) => {
+    try {
+
+        let id = parseInt(req.params.id)
+
+        let tabla = db.collection("reservation")
+        let data = await tabla.aggregate(
+            [
+                {
+                    $match: {
+                        id: id
+                    }
+                }
+            ]
+        ).toArray();
 
         res.send(data)
         
@@ -99,6 +130,14 @@ export const getStatusReservation = async(req, res) => {
     }
 }
 
+/*
+    {
+        "nit_client": 1234567890,
+        "id_book": 19,
+        "date_end_reservation": "2024-06-26",
+        "status": "Reserved"
+    }
+*/
 export let postReservation = async(req, res) => {
     try {
         const error = validationResult(req);
@@ -106,7 +145,7 @@ export let postReservation = async(req, res) => {
 
         if(Object.keys(req.body).length === 0) return res.status(200).send({status: 203, message: 'Enviar toda la data'})
 
-        let nitClient = req.body.nit_client
+        let nitClient = parseInt(req.body.nit_client)
         let tabla_user = db.collection("user")
 
         let compararNit = await tabla_user.findOne(
@@ -119,7 +158,7 @@ export let postReservation = async(req, res) => {
 
         let tabla_book = db.collection('book')
 
-        let id_book = req.body.id_book
+        let id_book = parseInt(req.body.id_book)
 
         let dataExistBook = await tabla_book.findOne(
             {
@@ -128,17 +167,22 @@ export let postReservation = async(req, res) => {
         )
 
         if (!dataExistBook) return res.status(200).send({ status: 204, message: "Este libro no existe en la coleccion"});
-
-        let reservate = new Date()
-        let date = String(`${reservate.getFullYear()}-0${reservate.getMonth() + 1}-${reservate.getDate()}`)
         
         let newID = await autoIncrement('reservation')
+        let nit = parseInt(req.body.nit_client)
+        let book = parseInt(req.body.id_book)
+        let reservation = req.body.date_reservation
+        let end_reservation = req.body.date_end_reservation
+        let status = req.body.status
 
         let tabla_load = db.collection('reservation')
         await tabla_load.insertOne({
             id: newID,
-            date_reservation: date,
-            ...req.body
+            nit_client: nit,
+            id_book: book,
+            date_reservation: reservation,
+            date_end_reservation: end_reservation,
+            status: status
         })
 
         res.status(200).send({status: 201, message: "Registro creado con exito"})
@@ -226,6 +270,7 @@ export let putReservation = async(req, res) => {
         let loan = new Date()
         let date = String(`${loan.getFullYear()}-0${loan.getMonth() + 1}-${loan.getDate()}`)
 
+        console.log(req.body);
 
         await tabla_reservacion.updateOne(
             {id: id},
@@ -235,7 +280,7 @@ export let putReservation = async(req, res) => {
         return res.status(200).send({status: 201, message: "Registro actualizado con exito"})
 
     } catch (error) {
-        res.status(200).send({status: 203, message: error.message})
+        res.status(200).send({status: 203, message: "Error en los datos al momento de actualizar el registro"})
     }
 }
 
