@@ -1,0 +1,130 @@
+.contenedorGeneralIconos {
+    display: flex;
+    align-items: center;
+}
+
+.parrafoContact1 {
+    font-size: 100%;
+    margin-bottom: 10px;
+}
+
+.formularioContacto {
+    background-color: white;
+    height: 100%;
+    margin-top: 0 !important;
+}
+
+.iconosContact {
+    width: 20px;
+    font-size: 20px;
+    margin: 10px 0px 0px 0px;
+}
+
+.textoContacto {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: white;
+    font-weight: lighter;
+    font-size: 100%;
+}
+
+.inputText {
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+}
+
+.inputText input {
+    padding: 10px;
+    width: 80%;
+    font-size: 100%;
+    border: none;
+    border-radius: 3px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.inputText textarea {
+    padding: 10px;
+    width: 80%;
+    resize: none;
+    height: 120px;
+    font-size: 130%;
+    border: none;
+    border-radius: 3px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.inputText:nth-last-child(5) {
+    margin-top: 0px;
+    padding: 10px;
+}
+
+
+/* Boton enviar*/
+
+
+/* button styling */
+.button {
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    --border-right: 6px;
+    --text-stroke-color: rgba(0, 0, 0, 0.6);
+    --animation-color: #000000;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+/* this is the text, when you hover on button */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* hover */
+.button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+.actual-text {
+    border: none;
+}
+
+@media (max-width: 820px) {
+    .textoContacto {
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 633px) {
+    .parrafoContact1 {
+        font-size: 80%;
+        margin-bottom: 10px;
+    }
+
+    .iconosContact {
+        font-size: 100%;
+    }
+
+    .textoContacto {
+        font-size: 67%;
+    }
+}
