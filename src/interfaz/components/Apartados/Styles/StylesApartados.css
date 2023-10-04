@@ -164,36 +164,35 @@
 }
 
 .contenedorBoton {
+    display: flex;
     margin-top: 20px;
     width: 100%;
 }
 
 .contenedorBotonSalirUser {
-    margin: -54px;
-    width: 100%;
+    display: flex;
+    margin-top: -54px;
+    justify-content: end;
+    width: 80%;
 }
 
 .optionSend {
+    left: 20%;
     font-weight: bold;
-    margin-left: 26%;
     padding: 10px;
-    width: 20%;
-    display: block;
 }
 
 .optionExit {
-    border: 1px solid black;
+    right: 20%;
     font-weight: bold;
-    margin-left: 50%;
     padding: 10px;
-    width: 20%;
-    display: block;
 }
 
 /* Boton Enviar */
 .optionSend,
 .optionSend::after {
-    padding: 10px 50px;
+    width: 120px;
+    padding: 10px 0px;
     border: 1px solid black;
     font-size: 20px;
     border: none;
@@ -204,7 +203,6 @@
 
 .optionSend::after {
     border: 1px solid black;
-
     --move1: inset(50% 50% 50% 50%);
     --move2: inset(31% 0 40% 0);
     --move3: inset(39% 0 15% 0);
@@ -302,7 +300,8 @@
 /* Boton salir */
 .optionExit,
 .optionExit::after {
-    padding: 10px 50px;
+    width: 120px;
+    padding: 10px 0px;
     border: 1px solid black;
     font-size: 20px;
     border: none;
@@ -403,5 +402,34 @@
     100% {
         clip-path: var(--move1);
         transform: translate(0);
+    }
+}
+
+@media (max-width: 745px) {
+    .optionSend {
+        left: 10%;
+        font-weight: bold;
+        padding: 10px;
+    }
+    
+    .optionExit {
+        right: 10%;
+        font-weight: bold;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 544px) {
+    .optionSend {
+        left: 0%;
+        font-weight: bold;
+        padding: 10px;
+    }
+    
+    .optionExit {
+        margin-top: 70px !important;
+        right: 0%;
+        font-weight: bold;
+        padding: 10px;
     }
 }

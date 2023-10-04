@@ -41,10 +41,9 @@ export default function Customer() {
           {newArrayCustomer.map((val, key) => (
             <div className='contenedorCartica' key={key}>
               <div className='contenedorPrestamo'>
-                <h2>Prestamo # {val._id}</h2>
+                <h2>Loan Date: {val.date_loan}</h2>
               </div>
               <div className='contenedorGeneralBooksPrestados'>
-                {/* Aquí deberías iterar sobre los libros de prestamo */}
                 {val.fk_loan_book.map((book, index) => (
                   <div className="book" key={index}>
                     <h5>{book[0].name}</h5>

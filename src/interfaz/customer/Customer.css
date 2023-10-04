@@ -28,10 +28,13 @@
 
 .contenedorPrestamo{
     width: 82%;
+    height: auto;
 }
 
 .contenedorPrestamo h2{
+    margin-top: 20px;
     color: black;
+    text-align: left;
     font-size: 200%;
     font-family: 'Croissant One', cursive;
 }
@@ -43,3 +46,62 @@
     justify-content: center;
 }
 
+.contenedorCartica{
+    width: 100%;
+}
+
+@media (max-width: 970px) {
+    .contenedorCustomer{
+        width: calc(100% - 10%);
+    }
+
+    
+}
+
+@media (max-width: 500px) {
+    .contenedorCustomer{
+        width: calc(100% - 10%);
+    }
+
+    .contenedorCartica{
+        margin-left: 50%;
+        transform: translateX(-50%);
+        width: 120%;
+    }
+
+    .cover{
+        width: 100%;
+        height: 100%;
+    }
+
+    .book{
+        width: 100%;
+        height: 420px;
+    }
+}
+
+@media (max-width: 382px) {
+    .contenedorCustomer{
+        width: calc(100% - 10%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedorCartica{
+        margin-left: 50%;
+        transform: translateX(-50%);
+        width: 120%;
+    }
+
+    .cover{
+        width: 100%;
+        height: 100%;
+    }
+
+    .book{
+        width: 100%;
+        height: 320px;
+    }
+}
