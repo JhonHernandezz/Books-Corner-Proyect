@@ -8,6 +8,7 @@ let db = await con()
 export const crearToken = async(req, res, next) => {
 
     let {user, pass } = req.body;
+    user = parseInt(user)
 
     if (Object.keys(req.body).length === 0) {
         res.send("falta data")
@@ -16,11 +17,11 @@ export const crearToken = async(req, res, next) => {
         let tabla = db.collection('user')
 
         let usuario = await tabla.findOne({nit: user})
-        if (!usuario) return res.send("Este usuario no existe, por favor registrese")
+        if (!usuario) return res.send({status:400, message: "Este usuario no existe, por favor registrese"})
         
         let data = await tabla.findOne({nit: user, password: pass})
 
-        if (!data) return res.send("Usuario o contraseña incorrecto")
+        if (!data) return res.send({status:400, message: "Contraseña incorrecta"})
         
         let encoder = new TextEncoder()
         let dataGuardarToken = {
@@ -28,6 +29,10 @@ export const crearToken = async(req, res, next) => {
             NIT: data.nit,
             ROL: data.role,
             PERMISOS: data.permisos
+        }
+
+        let dataRol = {
+            ROL: data.role,
         }
 
         let jwtConstruct = await new SignJWT(dataGuardarToken)
@@ -38,7 +43,7 @@ export const crearToken = async(req, res, next) => {
 
         const llave = "Bearer " + jwtConstruct
 
-        res.send({status: 200, message: llave})
+        res.send({status: 200, ...dataRol, message: llave})
 
     }
 }
@@ -48,10 +53,34 @@ export let validarToken = async(req, token) => {
         const encoder = new TextEncoder()
         const jwtData = await jwtVerify(token, encoder.encode(my_jwt))
 
+        req.data = jwtData
+
         let busqueda = await db.collection("user").findOne(
             {
                 _id: new ObjectId(jwtData.payload.ID),
                 [`permisos.${req.baseUrl}`]: `${req.headers["accept-version"]}`
+            }
+        )
+
+        let {_id, permisos, ...Usuario} = busqueda
+
+        return Usuario;
+        
+    } catch (error) {
+        return false;
+    }
+}
+
+export let validarTokenDataUser = async(req, token) => {
+    try {
+        const encoder = new TextEncoder()
+        const jwtData = await jwtVerify(token, encoder.encode(my_jwt))
+
+        req.data = jwtData
+
+        let busqueda = await db.collection("user").findOne(
+            {
+                _id: new ObjectId(jwtData.payload.ID)
             }
         )
 

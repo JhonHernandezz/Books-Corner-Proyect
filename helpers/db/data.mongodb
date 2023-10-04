@@ -4,7 +4,7 @@ db.book.insertMany(
         {
             id: 1,
             name: "El Señor de los Anillos: La Comunidad del Anillo",
-            photo: "https://th.bing.com/th/id/R.d60f3156fb891e7a61332ffa0d60c8d2?rik=ScDaV7tU6T804g&pid=ImgRaw&r=0",
+            photo: "https://www.lamusica.com.co/cdn/shop/products/img20221006_15165985.jpg?v=1665087589",
             autor: "J.R.R. Tolkien",
             year_of_publication: "1954",
             categorie: "Fantasia",
@@ -16,7 +16,7 @@ db.book.insertMany(
         {
             id: 2,
             name: "Harry Potter y la Piedra Filosofal",
-            photo: "https://th.bing.com/th/id/OIP.8ypHYVWdaKQJABAJZNsm8wHaLz?pid=ImgDet&rs=1",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/ce/e6/cee6ef96dad70d3f599b953f0e50afc7.jpg",
             autor: "J.K. Rowling",
             year_of_publication: "1997",
             categorie: "Fantasia",
@@ -28,7 +28,7 @@ db.book.insertMany(
         {
             id: 3,
             name: "El Principito",
-            photo: "https://th.bing.com/th/id/R.e69a6026fc6879178fccb7364dfd2a4f?rik=rdo670g7IYWHoQ&pid=ImgRaw&r=0",
+            photo: "https://www.ellibrototal.com/testLtotal/CARATULAS/libros/2014/2/9175.jpg",
             autor: "Antoine de Saint-Exupéry",
             year_of_publication: "1943",
             categorie: "Aventura",
@@ -40,7 +40,7 @@ db.book.insertMany(
         {
             id: 4,
             name: "Cien años de soledad",
-            photo: "https://th.bing.com/th/id/R.a1b79b41240e2231e8b0b90d937f09a0?rik=Cus8gF2rRfR5pg&pid=ImgRaw&r=0",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/61/8d/618d227e8967274cd9589a549adff52d.jpg",
             autor: "Gabriel García Márquez",
             year_of_publication: "1967",
             categorie: "Clasicos",
@@ -52,7 +52,7 @@ db.book.insertMany(
         {
             id: 5,
             name: "1984",
-            photo: "https://th.bing.com/th/id/OIP.ZlwQrCCwFveEpXGcQHerjgAAAA?pid=ImgDet&rs=1",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/cd/98/cd98b8ec87bf3636c6d3e9019d794bba.jpg",
             autor: "George Orwell",
             year_of_publication: "1949",
             categorie: "Accion",
@@ -64,7 +64,7 @@ db.book.insertMany(
         {
             id: 6,
             name: "El Hobbit",
-            photo: "https://th.bing.com/th/id/R.6ed481a3ae901c89097a579c374bf8a6?rik=a0DyZ8SfM1eSAw&pid=ImgRaw&r=0",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/45/44/4544aa9e50feca33c58b1d4646f34b2f.jpg",
             autor: "J.R.R. Tolkien",
             year_of_publication: "1937",
             categorie: "Fantasia",
@@ -76,7 +76,7 @@ db.book.insertMany(
         {
             id: 7,
             name: "El retrato de Dorian Gray",
-            photo: "https://th.bing.com/th/id/OIP.ZUx5oNHHuuSb12d77_ZfiAHaLu?pid=ImgDet&rs=1",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/f5/f7/f5f76824ad6de2142b65ac8c45a6bbe9.jpg",
             autor: "Oscar Wilde",
             year_of_publication: "1890",
             categorie: "Clasicos",
@@ -88,7 +88,7 @@ db.book.insertMany(
         {
             id: 8,
             name: "Orgullo y prejuicio",
-            photo: "https://th.bing.com/th/id/OIP.8cABIPJZA-1vTHOry3ADlwHaLr?pid=ImgDet&rs=1",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/46/6b/466b0b47e932561b186c56358acbe55e.jpg",
             autor: "Jane Austen",
             year_of_publication: "1813",
             categorie: "Clasicos",
@@ -100,7 +100,7 @@ db.book.insertMany(
         {
             id: 9,
             name: "Moby-Dick",
-            photo: "https://th.bing.com/th/id/R.83ef9e0c5b1398488001868e8587b05c?rik=wGPbS0m3q8ZO4w&pid=ImgRaw&r=0",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/b5/89/b589be02f650868192cc4bc0c876ea31.jpg",
             autor: "Herman Melville",
             year_of_publication: "1851",
             categorie: "Clasicos",
@@ -112,7 +112,7 @@ db.book.insertMany(
         {
             id: 10,
             name: "La Biblia",
-            photo: "https://th.bing.com/th/id/OIP.ZyRkEx4_zZrcZXKbAfIElAHaK3?pid=ImgDet&rs=1",
+            photo: "https://www.aboutespanol.com/thmb/mAofpbYokirGguTCC6RHFlt1j50=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bible-56a1e2d15f9b58b7d0c4419a.jpg",
             autor: "Varios autores",
             year_of_publication: "aprox. 1.500 a.C.",
             categorie: "Historia",
@@ -148,7 +148,7 @@ db.book.insertMany(
         {
             id: 13,
             name: "La Divina Comedia",
-            photo: "https://th.bing.com/th/id/OIP.GO0oknShk-u9CjtzoOKmBgHaLH?pid=ImgDet&rs=1",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/c6/61/c661584e83b1f5658585b4c9279229e0.jpg",
             autor: "Dante Alighieri",
             year_of_publication: "1321",
             categorie: "Clasicos",
@@ -172,7 +172,7 @@ db.book.insertMany(
         {
             id: 15,
             name: "Crimen y castigo",
-            photo: "https://th.bing.com/th/id/R.69f5d5777707be7407866cb2c4562657?rik=0w2JlrGz155E%2bg&pid=ImgRaw&r=0",
+            photo: "https://quelibroleo.com/images/libros/libro_1362370739.png",
             autor: "Fiódor Dostoyevski",
             year_of_publication: "1866",
             categorie: "Clasicos",
@@ -184,7 +184,7 @@ db.book.insertMany(
         {
             id: 16,
             name: "El Gran Gatsby",
-            photo: "https://th.bing.com/th/id/OIP.XctOmmqwwc0T2c7HaXpRYAHaLu?pid=ImgDet&rs=1",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/e4/01/e401faaab2124ec3aeccf86467857807.jpg",
             autor: "F. Scott Fitzgerald",
             year_of_publication: "1925",
             categorie: "Clasicos",
@@ -220,7 +220,7 @@ db.book.insertMany(
         {
             id: 19,
             name: "Los miserables",
-            photo: "https://th.bing.com/th/id/OIP.tKSQTZ4yYtQT3NelG-uX5AAAAA?pid=ImgDet&rs=1",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/92/e1/92e1aa0baaea187a439a6888facc80df.jpg",
             autor: "Victor Hugo",
             year_of_publication: "1862",
             categorie: "Clasicos",
@@ -243,7 +243,6 @@ db.book.insertMany(
         }
     ]
 )
-
 use("Books-Corner-Proyect")
 db.user.insertMany(
     [
