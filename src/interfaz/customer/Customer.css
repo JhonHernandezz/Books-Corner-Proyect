@@ -1,0 +1,45 @@
+.contenedorCustomer{
+    width: calc(100% - 250px);
+    right: 0;
+    height: auto;
+    position: absolute;
+    top: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorCustomer > h1{
+    font-family: 'Croissant One', cursive;
+    font-size: 400%;
+    margin-bottom: 40px;
+}
+
+.contenedorCardsCustomer{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorPrestamo{
+    width: 82%;
+}
+
+.contenedorPrestamo h2{
+    color: black;
+    font-size: 200%;
+    font-family: 'Croissant One', cursive;
+}
+
+.contenedorGeneralBooksPrestados{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
