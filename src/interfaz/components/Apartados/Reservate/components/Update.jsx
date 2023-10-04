@@ -12,7 +12,7 @@ export default function Update({ id }) {
   let [date_end_reservation, setDateEndReservation] = useState('')
   let [status, setStatusReservation] = useState('')
 
-  const handleActualizar = async(e) => {
+  const handleActualizar = async (e) => {
     e.preventDefault()
 
     try {
@@ -25,7 +25,7 @@ export default function Update({ id }) {
         },
         body: JSON.stringify({ nit_client, id_book, date_reservation, date_end_reservation, status })
       }
-  
+
       let respuesta = await (await fetch(`http://${url.hostname}:${url.port}/reservation/update/${id}`, config)).json()
 
       if (respuesta.status === 201) {
@@ -35,7 +35,7 @@ export default function Update({ id }) {
         alert(respuesta.message)
       }
     } catch (error) {
-      console.log();(error)
+      console.log(error)
     }
   }
 
@@ -81,14 +81,14 @@ export default function Update({ id }) {
 
       <form onSubmit={handleActualizar} className='formAddAndPut'>
         <div className="input-container">
-          <input className="input" name="nit_client" type="text" value={nit_client} onChange={(e) => setNit(e.target.value)} disabled/>
+          <input className="input" name="nit_client" type="text" value={nit_client} onChange={(e) => setNit(e.target.value)} disabled />
           <label className="label" htmlFor="input">Enter Nit</label>
           <div className="topline"></div>
           <div className="underline"></div>
         </div>
 
         <div className="input-container">
-          <input className="input" name="id_book" type="text" value={id_book} onChange={(e) => setIdBook(e.target.value)} disabled/>
+          <input className="input" name="id_book" type="text" value={id_book} onChange={(e) => setIdBook(e.target.value)} disabled />
           <label className="label" htmlFor="input">Enter Book</label>
           <div className="topline"></div>
           <div className="underline"></div>
@@ -96,17 +96,21 @@ export default function Update({ id }) {
 
         <div className="input-container">
           <label htmlFor="dateReturn" className="input-label">Date Reservation</label>
-          <input id="dateReturn" className="input" type="date" name="date_reservation" value={date_reservation} onChange={(e) => setDateReservation(e.target.value)} required/>
+          <input id="dateReturn" className="input" type="date" name="date_reservation" value={date_reservation} onChange={(e) => setDateReservation(e.target.value)} required />
         </div>
 
         <div className="input-container">
           <label htmlFor="dateReturn" className="input-label">Date End Reservation</label>
-          <input id="dateReturn" className="input" type="date" name="date_end_reservation" value={date_end_reservation} onChange={(e) => setDateEndReservation(e.target.value)} required/>
+          <input id="dateReturn" className="input" type="date" name="date_end_reservation" value={date_end_reservation} onChange={(e) => setDateEndReservation(e.target.value)} required />
         </div>
 
         <div className="input-container">
-          <input className="input" name="status" type="text" value={status} onChange={(e) => setStatusReservation(e.target.value)} required/>
-          <label className="label" htmlFor="input">Enter Status</label>
+          <select className="input" name="status" value={status} onChange={(e) => setStatusReservation(e.target.value)}>
+            <option value="">Select a status</option>
+            <option value="Cancelled reservation">Cancelled reservation</option>
+            <option value="Loan">Loan</option>
+          </select>
+          <label className="label" htmlFor="select">Select a status</label>
           <div className="topline"></div>
           <div className="underline"></div>
         </div>

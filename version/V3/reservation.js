@@ -270,8 +270,6 @@ export let putReservation = async(req, res) => {
         let loan = new Date()
         let date = String(`${loan.getFullYear()}-0${loan.getMonth() + 1}-${loan.getDate()}`)
 
-        console.log(req.body);
-
         await tabla_reservacion.updateOne(
             {id: id},
             {$set: {id: id, date_reservation: date, ...req.body}}

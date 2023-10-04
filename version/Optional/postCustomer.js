@@ -28,7 +28,6 @@ storagePostCustomer.post("/", limitPeticiones(), validateUser, async(req, res) =
         let tabla = db.collection("user")
 
         let NIT = parseInt(nit)
-        console.log(NIT);
 
         let ROL = "Customer"
         let PERMISOS = {

@@ -164,7 +164,7 @@ export default function User({ role }) {
           <button className='botonAgregar'>
             <span className="transition"></span>
             <span className="gradient"></span>
-            <span className="btnAdd" onClick={handleAddClicked}>Add</span>
+            <span className="btnAdd" onClick={handleAddClicked}>+</span>
           </button>
           <div className="input__container">
             <div className="shadow__input"></div>
@@ -250,7 +250,7 @@ export default function User({ role }) {
           <button className='botonAgregar'>
             <span className="transition"></span>
             <span className="gradient"></span>
-            <span className="btnAdd" onClick={handleAddClickedEmployee}>Add</span>
+            <span className="btnAdd" onClick={handleAddClickedEmployee}>+</span>
           </button>
           <div className="input__container">
             <div className="shadow__input"></div>

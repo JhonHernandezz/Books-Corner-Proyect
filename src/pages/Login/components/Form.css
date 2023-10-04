@@ -326,17 +326,16 @@ input[type=number] {
 }
 
 .botonVolver{
-  color: white;
   position: absolute;
   left: 10px;
   top: 10px;
   border-radius: 100%;
   width: 40px;
   height: 40px;
-  border: 1px solid white;
+  border: 3px solid red;
 }
 
 .tituloLogin{
-  color: black;
-  font-size: 140%;
+  color: #2a2b38;
+  font-size: 35px;
 }

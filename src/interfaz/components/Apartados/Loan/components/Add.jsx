@@ -13,8 +13,6 @@ export default function Add() {
     let [status, setStatus] = useState('')
     let [cost, setCost] = useState('0')
 
-    console.log(count_book);
-
     let handleCountBook = (e) => {
         if (e.key !== 'Enter') {
             setCountBook([...count_book, parseInt(data_count_book)]);
@@ -86,8 +84,6 @@ export default function Add() {
                     <select className="input" name="status" value={status} onChange={(e) => setStatus(e.target.value)}>
                         <option value="">Select a status</option>
                         <option value="Loan">Loan</option>
-                        <option value="Return">Return</option>
-                        <option value="Overdue">Overdue</option>
                     </select>
                     <label className="label" htmlFor="select">Select a status</label>
                     <div className="topline"></div>
