@@ -13,6 +13,9 @@ import Reservate from '../Apartados/Reservate/Reservate';
 import './Nav.css'
 
 export default function Nav({apartados}) {
+
+    const url = JSON.parse(import.meta.env.VITE_MY_CONFIG);
+
     const redirect = useNavigate();
     const apartadoPagina = [...apartados]
 
@@ -36,7 +39,7 @@ export default function Nav({apartados}) {
                 )
             }
 
-            let respuesta = await (await fetch('http://127.10.10.10:5130/obtenerDataUser', config)).json()
+            let respuesta = await (await fetch(`http://${url.hostname}:${url.port}/obtenerDataUser`, config)).json()
 
             if (respuesta.status === 202) {
                 setNombre(respuesta.message[0].name)
