@@ -1,0 +1,303 @@
+.imgHome{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+.imgHome img{
+    position: fixed;
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    height: calc(100vh - 4px);
+    z-index: -1;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 30vh;
+    text-align: center;
+}
+
+.title h4{
+    color: white;
+    font-size: 500%;
+}
+
+.librosTop{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+/* Contenedor cartas Libros */
+.card{
+    width: 90%;  
+    background-color: transparent; 
+}
+
+.contenedorCartas{
+    display: flex;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+
+.titloBooks{
+    margin-top: 35px;
+    font-family: 'Croissant One', cursive;
+    font-size: 50px;
+    font-weight: lighter;
+    color: white;
+}
+
+.contenedorCartas > .contenedorCard:first-child{
+    margin-top: -30px;
+}
+
+.contenedorCartas > .contenedorCard:last-child{
+    margin-top: -30px;
+}
+/* --------------------------- */
+
+/* Contenedor cartas About */
+.cards{
+    margin-top: 150px;
+    width: 90%;
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedorCardAbout{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+
+.contenedorCardAbout > .card-about:nth-last-child(3):hover:after,
+.contenedorCardAbout > .card-about:nth-last-child(2):hover:after,
+.contenedorCardAbout > .card-about:nth-last-child(1):hover:after {
+    font-weight: lighter;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+
+.contenedorCardAbout > .card-about:nth-last-child(3):hover:after{
+    content: "The main purpose of our library \a is to benefit all its users \a with easy access to all our \a information, promoting and \a motivating very high quality \a learning, knowledge and research.";
+    width: 248px;
+    font-size: 16px;
+    white-space: pre;
+    
+}
+
+.contenedorCardAbout > .card-about:nth-last-child(2):hover:after{
+    content: "We propose to guarantee \a that our library is inclusive, \a so that those with disabilities \a can easily access it, the use of the \a necessary technologies for the \a evaluation of each profile and \a thus contribute to their \a learning and interests.";
+    white-space: pre;
+    font-size: 16px;
+    width: 245px;
+}
+
+.contenedorCardAbout > .card-about:nth-last-child(1):hover:after{
+    content: "As promoters of reading and \a cultural knowledge, we aspire \a to be one of the great \a leaders in providing quick \a and effective information, \a  innovating every day to \a adapt to new learning.";
+    width: 245px;
+    white-space: pre;
+    font-size: 16px;
+}
+/* ----------------------- */
+
+/* Contenedor Contact */
+.contentContact {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.ContentHijoContact{
+    padding: 10px;
+    margin-top: 40px;
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    z-index: 1;
+}
+
+.ContentLeft{
+    position: relative;
+    width: 35%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.contentInfo {
+    text-align: left;
+    color: white;
+    width: 74%;
+    z-index: 1;
+    margin-left: 20px;
+}
+
+.contentIconContact{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: left;
+}
+
+.tituloContacto {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ContentLeft img{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.ContentRight{
+    width: 50%;
+    height: 500px;
+}
+/* ------------------ */
+
+@media (max-width: 1633px) {
+    .ContentLeft{
+        position: relative;
+        width: 45%;
+        height: 500px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 970px) {
+    .title {
+        position: absolute;
+        top: 30%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 30vh;
+        text-align: center;
+    }
+    
+    .wrapper .nav-links-inicio{
+        background-color: rgb(0, 0, 0, 0.9);
+    }
+
+    .nav-links-inicio li a{
+        margin-top: 20px !important;
+    }
+    
+    .wrapper .btn{
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 1648px) {
+    .contenedorCartas > .contenedorCard:nth-last-child(2){
+        margin-top: -30px;
+        margin-bottom: 70px;
+    }
+}
+
+@media (max-width: 1103px) {
+    .contenedorCartas > .contenedorCard:nth-last-child(2){
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+}
+
+@media (max-width: 950px) {
+    .contenedorCartas > .contenedorCard:nth-last-child(2){
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+}
+
+@media (max-width: 700px) {
+    .ContentHijoContact{
+        width: 100%;
+    }
+}
+
+@media (max-width: 570px) {
+    .title {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 30vh;
+        text-align: center;
+    }
+}
+
+@media (max-width: 530px) {
+    .imgHome img{
+        height: 100rem;
+    }
+
+    .librosTop{
+        background-color: rgb(0, 0, 0, 0.9);
+    }
+}
+
+@media (max-width: 540px) {
+    .ContentHijoContact{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .ContentLeft {
+        width: 80%;
+        height: 400px;
+    }
+
+    .ContentRight {
+        width: 80%;
+        height: 500px;
+    }
+}
+
+@media (max-width: 430px) {
+    .logoNav .a-nav{
+        font-size: 20px !important;
+    }
+    
+    .titloBooks{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 314px) {
+    .ContentLeft .contentInfo > .contentIconContact > .contenedorGeneralIconos:nth-last-child(1) {
+        display: none;
+    }
+}

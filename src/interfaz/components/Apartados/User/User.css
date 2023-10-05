@@ -1,0 +1,295 @@
+.contentUser {
+    position: absolute;
+    width: 100%;
+    color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentUser h3 {
+    padding: 40px 0px;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Croissant One', cursive;
+}
+
+.funcionesUser {
+    flex-wrap: wrap;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+/* Boton agregar */
+.botonAgregar {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    right: 10%;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 1px;
+    border: 1px solid #1f1b1b;
+    box-shadow: 5px 5px 10px #1f1b1b;
+    color: black;
+    overflow: hidden;
+}
+
+.btnAdd {
+    color: black;
+    font-size: 60px;
+    position: relative;
+}
+
+/* ------------- */
+    
+/* Inputs de busqueda */
+.input__container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.664);
+    padding: 10px 15px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    border-radius: 22px;
+    margin-left: 20px;
+    max-width: 300px;
+    transition: transform 400ms;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(-20deg);
+    perspective: 500px;
+}
+
+.shadow__input {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+    z-index: -1;
+    filter: blur(13px);
+    border-radius: 20px;
+    background-color: #999cff;
+    background-image: radial-gradient(at 85% 51%, hsla(60, 60%, 61%, 1) 0px, transparent 50%),
+        radial-gradient(at 74% 68%, rgb(42, 47, 104) 0px, transparent 50%),
+        radial-gradient(at 64% 79%, rgb(19, 9, 22) 0px, transparent 50%),
+        radial-gradient(at 75% 16%, rgb(141, 226, 166) 0px, transparent 50%),
+        radial-gradient(at 90% 65%, rgb(88, 94, 15) 0px, transparent 50%),
+        radial-gradient(at 91% 83%, rgb(94, 15, 126) 0px, transparent 50%),
+        radial-gradient(at 72% 91%, hsla(213, 75%, 75%, 1) 0px, transparent 50%);
+}
+
+.input__container {
+    position: relative;
+}
+
+.input__label {
+    position: absolute;
+    top: -1.5em;
+    left: 10xp;
+    color: #1f1b1b;
+    font-size: 0.9em;
+}
+
+.input__button__shadow {
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform 400ms, background 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.input__button__shadow:hover {
+    background: rgba(255, 255, 255, 0.411);
+}
+
+.input__search {
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    padding: 8px;
+    position: relative;
+}
+
+/* ------------------ */
+
+/* Tabla */
+
+.Tabla {
+    width: 100%;
+    height: 440px;
+    position: relative;
+    overflow: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.Tabla::-webkit-scrollbar {
+    display: none;
+}
+
+table {
+    width: 95%;
+    left: 30px;
+    position: absolute;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+/* ----- */
+
+/* Boton de actualizar y eliminar */
+.buttonUpdateClic {
+    align-items: center;
+    appearance: none;
+    background-color: #EEF2FF;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: #536DFE;
+    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #6453fe;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 36px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.buttonUpdateClic:focus {
+    outline: none;
+    box-shadow: #000000 0 0 0 1.5px inset, rgba(83, 109, 254, 0.4) 0 2px 4px, rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.buttonUpdateClic:hover {
+    color: black;
+    box-shadow: rgba(83, 109, 254, 0.3) 0 4px 8px, rgba(83, 109, 254, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.buttonUpdateClic:active {
+    box-shadow: #000000 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.buttonDeleteClic {
+    align-items: center;
+    appearance: none;
+    background-color: #EEF2FF;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: #536DFE;
+    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fe5353;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 36px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 15px;
+}
+
+.buttonDeleteClic:focus {
+    outline: none;
+    box-shadow: #000000 0 0 0 1.5px inset, rgba(83, 109, 254, 0.4) 0 2px 4px, rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.buttonDeleteClic:hover {
+    color: black;
+    box-shadow: rgba(83, 109, 254, 0.3) 0 4px 8px, rgba(83, 109, 254, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.buttonDeleteClic:active {
+    box-shadow: #000000 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+@media (max-width: 1600px) {
+    .botonAgregar {
+        right: 3%;
+    }
+}
+
+@media (max-width: 580px) {
+    .contentUser h3 {
+        font-size: 300%;
+    }
+}
+
+@media (max-width: 435px) {
+    .botonAgregar {
+        margin-top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .funcionesUser{
+        margin-top: 110px;
+        margin-bottom: -40px;
+    }
+}
+
+@media (max-width: 280px) {
+    .contentUser h3 {
+        font-size: 230%;
+    }
+}
+/* ----------------------------------------- */

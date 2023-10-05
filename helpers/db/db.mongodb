@@ -1,0 +1,203 @@
+use("Books-Corner-Proyect")
+db.createCollection("autoincrement")
+db.autoincrement.insertMany(
+    [
+        {ID: "bookid", sequenceValue: 20},
+        {ID: "loanid", sequenceValue: 10},
+        {ID: "reservationid", sequenceValue: 10}
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.createCollection("book", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["name", "photo", "autor", "categorie", "sinopsis", "status", "quantity"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                name: {
+                    bsonType: "string",
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s\w\:\.\,\-]+$",
+                    description: "name is required"
+                },
+                photo: {
+                    bsonType: "string", 
+                    description: "photo is required"
+                },
+                autor: {
+                    bsonType: "string",
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s\w\:\.\,\-]+$",
+                    description: "autor is required"
+                },
+                year_of_publication: {
+                    bsonType: "string",
+                    description: "year_of_publication is required"
+                },
+                categorie: {
+                    bsonType: "string",
+                    enum: ["Accion", "Aventura", "Clasicos", "Misterio", "Fantasia", "Horror", "Romance", "Suspenso y Thriller", "Historia", "Poesia"],
+                    description: "categorie is required"
+                },
+                sinopsis: {
+                    bsonType: "string", 
+                    description: "sinopsis is required"
+                },
+                editorial: {
+                    bsonType: "string", 
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s\w\:\.\,\-]+$",
+                    description: "editorial is required"
+                },
+                status: {
+                    bsonType: "string",
+                    enum: ["New", "Used"],
+                    description: "status is required"
+                },
+                quantity: {
+                    bsonType: "number", 
+                    description: "quantity is required"
+                }
+            }
+        }
+    }
+})
+
+use("Books-Corner-Proyect")
+db.createCollection("loan", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["nit_client", "date_loan", "date_return", "status", "cost"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                nit_client: {
+                    bsonType: "number",
+                    description: "nit_client is required"
+                },
+                count_book: {
+                    bsonType: "array"
+                },
+                date_loan: {
+                    bsonType: "string",
+                    description: "date_loan is required"
+                },
+                date_return: {
+                    bsonType: "string",
+                    description: "date_return is required"
+                },
+                status: {
+                    bsonType: "string",
+                    enum: ["Loan", "Return", "Overdue"],
+                    description: "status is required"
+                },
+                cost: {
+                    bsonType: "number", 
+                    description: "cost is required"
+                }
+            }
+        }
+    }
+})
+
+use("Books-Corner-Proyect")
+db.createCollection("reservation", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["nit_client", "id_book", "date_reservation", "date_end_reservation", "status"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                id: {
+                    bsonType: "int"
+                },
+                nit_client: {
+                    bsonType: "number",
+                    description: "nit_client is required"
+                },
+                id_book: {
+                    bsonType: "number", 
+                    description: "id_book is required"
+                },
+                date_reservation: {
+                    bsonType: "string",
+                    description: "date_reservation is required"
+                },
+                date_end_reservation: {
+                    bsonType: "string",
+                    description: "date_end_reservation is required"
+                },
+                status: {
+                    bsonType: "string",
+                    enum: ["Reserved", "Cancelled reservation", "Loan"],
+                    description: "status is required"
+                }
+            }
+        }
+    }
+})
+
+use("Books-Corner-Proyect")
+db.createCollection("user", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            additionalProperties: false,
+            required: ["nit", "password", "role", "name", "phone", "address", "email"],
+            properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
+                nit: {
+                    bsonType: "number",
+                    description: "nit is required"
+                },
+                password: {
+                    bsonType: "string", 
+                    description: "password is required"
+                },
+                role: {
+                    bsonType: "string",
+                    enum: ["Admin", "Employee", "Customer"],
+                    description: "role is required"
+                },
+                name: {
+                    bsonType: "string",
+                    pattern: "[a-zA-ZáéíóúÁÉÍÓÚñÑs]$",
+                    description: "name is required"
+                },
+                phone: {
+                    bsonType: "string",
+                    pattern: "[0-9\s\+]$",
+                    description: "phone is required"
+                },
+                address: {
+                    bsonType: "string",
+                    description: "address is required"
+                },
+                email: {
+                    bsonType: "string",
+                    description: "email is required"
+                },
+                permisos: {
+                    bsonType: "object",
+                    description: "permisos is required"
+                }
+            }
+        }
+    }
+})

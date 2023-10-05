@@ -1,0 +1,576 @@
+use("Books-Corner-Proyect")
+db.book.insertMany(
+    [
+        {
+            id: 1,
+            name: "El Señor de los Anillos: La Comunidad del Anillo",
+            photo: "https://www.lamusica.com.co/cdn/shop/products/img20221006_15165985.jpg?v=1665087589",
+            autor: "J.R.R. Tolkien",
+            year_of_publication: "1954",
+            categorie: "Fantasia",
+            sinopsis: "El Señor de los Anillos es una trilogía de novelas de fantasía escrita por el filólogo y escritor británico J. R. R. Tolkien. La historia se desarrolla en la Tierra Media, un continente ficticio poblado por elfos, enanos, hobbits y hombres. La trilogía narra el viaje del hobbit Frodo Bolsón para destruir el Anillo Único, una poderosa arma forjada por el Señor Oscuro Sauron.",
+            editorial: "HarperCollins",
+            status: "New",
+            quantity: 10
+        },
+        {
+            id: 2,
+            name: "Harry Potter y la Piedra Filosofal",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/ce/e6/cee6ef96dad70d3f599b953f0e50afc7.jpg",
+            autor: "J.K. Rowling",
+            year_of_publication: "1997",
+            categorie: "Fantasia",
+            sinopsis: "Harry Potter y la Piedra Filosofal es la primera novela de la serie Harry Potter escrita por la autora británica J. K. Rowling. La novela narra las aventuras de un joven mago llamado Harry Potter, quien a la edad de once años descubre que es famoso y posee grandes poderes mágicos.",
+            editorial: "Bloomsbury Publishing",
+            status: "Used",
+            quantity: 5
+        },
+        {
+            id: 3,
+            name: "El Principito",
+            photo: "https://www.ellibrototal.com/testLtotal/CARATULAS/libros/2014/2/9175.jpg",
+            autor: "Antoine de Saint-Exupéry",
+            year_of_publication: "1943",
+            categorie: "Aventura",
+            sinopsis: "El Principito es una novela corta de fantasía escrita por el piloto francés Antoine de Saint-Exupéry. Fue publicada en 1943 en Nueva York por la editorial Reynal & Hitchcock, con ilustraciones del propio autor. La obra es la más famosa de Saint-Exupéry y ha sido traducida a 300 idiomas y dialectos, convirtiéndose en uno de los libros más vendidos de la historia.",
+            editorial: "Reynal & Hitchcock",
+            status: "New",
+            quantity: 15
+        },
+        {
+            id: 4,
+            name: "Cien años de soledad",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/61/8d/618d227e8967274cd9589a549adff52d.jpg",
+            autor: "Gabriel García Márquez",
+            year_of_publication: "1967",
+            categorie: "Clasicos",
+            sinopsis: "Cien años de soledad es una novela del escritor colombiano Gabriel García Márquez, publicada en 1967. Narra la historia de la familia Buendía a través de cien años, en el pueblo ficticio de Macondo. La novela es considerada una de las obras más importantes de la literatura hispanoamericana del siglo XX.",
+            editorial: "Sudamericana",
+            status: "Used",
+            quantity: 8
+        },
+        {
+            id: 5,
+            name: "1984",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/cd/98/cd98b8ec87bf3636c6d3e9019d794bba.jpg",
+            autor: "George Orwell",
+            year_of_publication: "1949",
+            categorie: "Accion",
+            sinopsis: "1984 es una novela distópica de George Orwell publicada en 1949. La novela describe una sociedad futura en la que el gobierno controla todos los aspectos de la vida de las personas. La novela ha sido traducida a más de 65 idiomas y ha sido adaptada al cine y la televisión",
+            editorial: "Secker & Warburg",
+            status: "New",
+            quantity: 12
+        },
+        {
+            id: 6,
+            name: "El Hobbit",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/45/44/4544aa9e50feca33c58b1d4646f34b2f.jpg",
+            autor: "J.R.R. Tolkien",
+            year_of_publication: "1937",
+            categorie: "Fantasia",
+            sinopsis: "El Hobbit es una novela de fantasía escrita por el filólogo y escritor británico J. R. R. Tolkien. La novela narra las aventuras de Bilbo Bolsón, un hobbit que se embarca en un viaje para recuperar el tesoro del dragón Smaug.",
+            editorial: "George Allen & Unwin",
+            status: "Used",
+            quantity: 6
+        },
+        {
+            id: 7,
+            name: "El retrato de Dorian Gray",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/f5/f7/f5f76824ad6de2142b65ac8c45a6bbe9.jpg",
+            autor: "Oscar Wilde",
+            year_of_publication: "1890",
+            categorie: "Clasicos",
+            sinopsis: "El retrato de Dorian Gray es una novela de Oscar Wilde publicada en 1890. La novela narra la historia de Dorian Gray, un joven que vende su alma a cambio de una eterna juventud.",
+            editorial: "Ward, Lock & Co.",
+            status: "New",
+            quantity: 10
+        },
+        {
+            id: 8,
+            name: "Orgullo y prejuicio",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/46/6b/466b0b47e932561b186c56358acbe55e.jpg",
+            autor: "Jane Austen",
+            year_of_publication: "1813",
+            categorie: "Clasicos",
+            sinopsis: "Orgullo y prejuicio es una novela de Jane Austen publicada en 1813. La novela narra la historia de Elizabeth Bennet, una joven que debe decidir entre el amor y el orgullo.",
+            editorial: "E. Bentley",
+            status: "Used",
+            quantity: 7
+        },
+        {
+            id: 9,
+            name: "Moby-Dick",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/b5/89/b589be02f650868192cc4bc0c876ea31.jpg",
+            autor: "Herman Melville",
+            year_of_publication: "1851",
+            categorie: "Clasicos",
+            sinopsis: "Moby-Dick es una novela de Herman Melville publicada en 1851. La novela narra la historia de Ahab, un capitán de ballenero que busca venganza contra una ballena blanca llamada Moby-Dick.",
+            editorial: "Richard Bentley",
+            status: "New",
+            quantity: 9
+        },
+        {
+            id: 10,
+            name: "La Biblia",
+            photo: "https://www.aboutespanol.com/thmb/mAofpbYokirGguTCC6RHFlt1j50=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bible-56a1e2d15f9b58b7d0c4419a.jpg",
+            autor: "Varios autores",
+            year_of_publication: "aprox. 1.500 a.C.",
+            categorie: "Historia",
+            sinopsis: "La Biblia es una colección de textos religiosos que forman la base del judaísmo y el cristianismo. La Biblia se divide en dos partes principales: el Antiguo Testamento y el Nuevo Testamento. El Antiguo Testamento narra la historia del pueblo judío desde la creación del mundo hasta la llegada de Jesús. El Nuevo Testamento narra la vida, muerte y resurrección de Jesús.",
+            editorial: "Varios",
+            status: "New",
+            quantity: 10
+        },
+        {
+            id: 11,
+            name: "La Odisea",
+            photo: "https://www.elsotano.com/imagenes_grandes/9788498/978849825335.JPG",
+            autor: "Homero",
+            year_of_publication: "aprox. 800 a.C.",
+            categorie: "Clasicos",
+            sinopsis: "La Odisea es un poema épico griego escrito por Homero. La obra narra el regreso de Odiseo, rey de Ítaca, a su hogar tras la Guerra de Troya.",
+            editorial: "Biblioteca Clásica Gredos",
+            status: "New",
+            quantity: 10
+        },
+        {
+            id: 12,
+            name: "El Quijote de la Mancha",
+            photo: "https://imagessl5.casadellibro.com/a/l/t0/45/9788466236645.jpg",
+            autor: "Miguel de Cervantes",
+            year_of_publication: "1605",
+            categorie: "Clasicos",
+            sinopsis: "El Quijote de la Mancha es una novela escrita por Miguel de Cervantes Saavedra. La obra narra las aventuras de Don Quijote de la Mancha, un hidalgo manchego que enloquece leyendo libros de caballerías y decide convertirse en caballero andante.",
+            editorial: "Espasa Calpe",
+            status: "Used",
+            quantity: 5
+        },
+        {
+            id: 13,
+            name: "La Divina Comedia",
+            photo: "https://images.cdn1.buscalibre.com/fit-in/360x360/c6/61/c661584e83b1f5658585b4c9279229e0.jpg",
+            autor: "Dante Alighieri",
+            year_of_publication: "1321",
+            categorie: "Clasicos",
+            sinopsis: "La Divina Comedia es un poema épico escrito por Dante Alighieri. La obra narra el viaje de Dante a través del Infierno, el Purgatorio y el Paraíso.",
+            editorial: "Biblioteca Clásica Gredos",
+            status: "New",
+            quantity: 15
+        },
+        {
+            id: 14,
+            name: "Hamlet",
+            photo: "https://i0.wp.com/www.epubgratis.org/wp-content/uploads/2015/02/Hamlet-William-Shakespeare-portada.jpg?fit=683%2C1024&ssl=1",
+            autor: "William Shakespeare",
+            year_of_publication: "1603",
+            categorie: "Misterio",
+            sinopsis: "Hamlet es una tragedia escrita por William Shakespeare. La obra narra la historia de Hamlet, príncipe de Dinamarca, quien se venga de la muerte de su padre, el rey.",
+            editorial: "Penguin Classics",
+            status: "Used",
+            quantity: 8
+        },
+        {
+            id: 15,
+            name: "Crimen y castigo",
+            photo: "https://quelibroleo.com/images/libros/libro_1362370739.png",
+            autor: "Fiódor Dostoyevski",
+            year_of_publication: "1866",
+            categorie: "Clasicos",
+            sinopsis: "Crimen y castigo es una novela escrita por Fiódor Dostoyevski. La obra narra la historia de Raskolnikov, un estudiante universitario que comete un asesinato para probar su teoría de que las personas pueden dividirse en seres ordinarios y seres extraordinarios.",
+            editorial: "Alianza Editorial",
+            status: "New",
+            quantity: 12
+        },
+        {
+            id: 16,
+            name: "El Gran Gatsby",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/e4/01/e401faaab2124ec3aeccf86467857807.jpg",
+            autor: "F. Scott Fitzgerald",
+            year_of_publication: "1925",
+            categorie: "Clasicos",
+            sinopsis: "El Gran Gatsby es una novela escrita por F. Scott Fitzgerald. La obra narra la historia de Jay Gatsby, un multimillonario que organiza fiestas extravagantes en su mansión de West Egg, Long Island, con la esperanza de atraer la atención de Daisy Buchanan, una mujer casada que conoció en Louisville, Kentucky, cinco años antes.",
+            editorial: "Debolsillo",
+            status: "Used",
+            quantity: 6
+        },
+        {
+            id: 17,
+            name: "La Metamorfosis",
+            photo: "https://imagessl5.casadellibro.com/a/l/t0/05/9788466236805.jpg",
+            autor: "Franz Kafka",
+            year_of_publication: "1915",
+            categorie: "Clasicos",
+            sinopsis: "La Metamorfosis es una novela corta escrita por Franz Kafka. La obra narra la historia de Gregor Samsa, un viajante de comercio que se despierta una mañana convertido en una enorme cucaracha.",
+            editorial: "Alianza Editorial",
+            status: "New",
+            quantity: 15
+        },
+        {
+            id: 18,
+            name: "Hijos de la fábula",
+            photo: "https://phantom-telva.unidadeditorial.es/63d40c32fd3946bd34afcc4e31dadfd8/resize/1300/assets/multimedia/imagenes/2022/12/27/16721566030053.jpg",
+            autor: "Fernando Aramburu",
+            year_of_publication: "2023",
+            categorie: "Aventura",
+            sinopsis: "Una colección de cuentos que exploran los temas universales de la vida, el amor, la muerte y la naturaleza humana.",
+            editorial: "Antología",
+            status: "New",
+            quantity: 7
+        },
+        {
+            id: 19,
+            name: "Los miserables",
+            photo: "https://images.cdn3.buscalibre.com/fit-in/360x360/92/e1/92e1aa0baaea187a439a6888facc80df.jpg",
+            autor: "Victor Hugo",
+            year_of_publication: "1862",
+            categorie: "Clasicos",
+            sinopsis: "Los miserables es una novela de Victor Hugo publicada en 1862. La novela narra la historia de Jean Valjean, un exconvicto que busca la redención.",
+            editorial: "Ediciones Anaya",
+            status: "Used",
+            quantity: 5
+        },
+        {
+            id: 20,
+            name: "Volver a empezar",
+            photo: "https://imagessl5.casadellibro.com/a/l/t7/95/9788408267195.jpg",
+            autor: "Cristina Urrutia",
+            year_of_publication: "2023",
+            categorie: "Romance",
+            sinopsis: "Una mujer decide empezar de nuevo tras la muerte de su marido. Se muda a un pueblo pequeño y allí conoce a un hombre que le ayudará a encontrar el amor de nuevo.",
+            editorial: "Planeta Internacional",
+            status: "New",
+            quantity: 9
+        }
+    ]
+)
+use("Books-Corner-Proyect")
+db.user.insertMany(
+    [
+        {
+            nit: 1234567890,
+            password: "password123",
+            role: "Admin",
+            name: "John Doe",
+            phone: "+15 555555555",
+            address: "123 Main Street, Anytown, CA 91234",
+            email: "john.doe@example.com",
+            permisos: {
+                "/user": ["3.0.0"],
+                "/book": ["3.0.0"],
+                "/loan": ["3.0.0"],
+                "/reservation": ["3.0.0"]
+            }
+        },
+        {
+            nit: 9876543210,
+            password: "password456",
+            role: "Employee",
+            name: "Jane Doe",
+            phone: "+15 555555556",
+            address: "456 Elm Street, Anytown, CA 91234",
+            email: "jane.doe@example.com",
+            permisos: {
+                "/user": ["2.0.0"],
+                "/book": ["2.0.0"],
+                "/loan": ["2.0.0"],
+                "/reservation": ["2.0.0"]
+            }
+        },
+        {
+            nit: 1111111111,
+            password: "password123",
+            role: "Admin",
+            name: "Maria Garcia",
+            phone: "+57 555555555",
+            address: "Calle 123, Bogotá, Colombia",
+            email: "maria.garcia@example.com",
+            permisos: {
+                "/user": ["3.0.0"],
+                "/book": ["3.0.0"],
+                "/loan": ["3.0.0"],
+                "/reservation": ["3.0.0"]
+            }
+        },
+        {
+            nit: 2222222222,
+            password: "password456",
+            role: "Employee",
+            name: "Juan Perez",
+            phone: "+57 555555556",
+            address: "Carrera 123, Bogotá, Colombia",
+            email: "juan.perez@example.com",
+            permisos: {
+                "/user": ["2.0.0"],
+                "/book": ["2.0.0"],
+                "/loan": ["2.0.0"],
+                "/reservation": ["2.0.0"]
+            }
+        },
+        {
+            nit: 3333333333,
+            password: "password789",
+            role: "Customer",
+            name: "Peter Parker",
+            phone: "+15 555555557",
+            address: "789 Park Avenue, Anytown, CA 91234",
+            email: "peter.parker@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
+        },
+        {
+            nit: 4444444444,
+            password: "password012",
+            role: "Customer",
+            name: "Mary Jane Watson",
+            phone: "+15 555555558",
+            address: "1011 12th Street, Anytown, CA 91234",
+            email: "mary.jane.watson@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
+        },
+        {
+            nit: 5555555555,
+            password: "password345",
+            role: "Customer",
+            name: "Bruce Wayne",
+            phone: "+15 555555559",
+            address: "2022 Wayne Manor, Gotham City, CA 91234",
+            email: "bruce.wayne@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
+        },
+        {
+            nit: 6666666666,
+            password: "password678",
+            role: "Customer",
+            name: "Clark Kent",
+            phone: "+15 555555560",
+            address: "3033 Daily Planet, Metropolis, CA 91234",
+            email: "clark.kent@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
+        },
+        {
+            nit: 7777777777,
+            password: "password901",
+            role: "Customer",
+            name: "Diana Prince",
+            phone: "+15 555555561",
+            address: "4044 Themyscira, CA 91234",
+            email: "diana.prince@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
+        },
+        {
+            nit: 8888888888,
+            password: "password234",
+            role: "Customer",
+            name: "Tony Stark",
+            phone: "+15 555555562",
+            address: "5055 Avengers Tower, New York City, NY 91234",
+            email: "tony.stark@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
+        },
+        {
+            nit: 9999999999,
+            password: "password567",
+            role: "Customer",
+            name: "Steve Rogers",
+            phone: "+15 555555563",
+            address: "6066 Avengers Compound, Upstate New York, NY 91234",
+            email: "steve.rogers@example.com",
+            permisos: {
+                "/loan": ["1.0.0"]
+            }
+        }
+    ]
+)
+    
+use("Books-Corner-Proyect")
+db.loan.insertMany(
+    [
+        {
+            id: 1,
+            nit_client: 1234567890,
+            count_book: [3, 7],
+            date_loan: "2023-03-07",
+            date_return: "2023-03-07",
+            status: "Loan",
+            cost: 0
+        },
+        {
+            id: 2,
+            nit_client: 9876543210,
+            count_book: [6, 9],
+            date_loan: "2023-09-12",
+            date_return: "2023-09-12",
+            status: "Return",
+            cost: 0
+        },
+        {
+            id: 3,
+            nit_client: 3333333333,
+            count_book: [12, 6],
+            date_loan: "2023-12-08",
+            date_return: "2023-12-08",
+            status: "Overdue",
+            cost: 20000
+        },
+        {
+            id: 4,
+            nit_client: 4444444444,
+            count_book: [14, 3],
+            date_loan: "2023-07-06",
+            date_return: "2023-07-06",
+            status: "Loan",
+            cost: 0
+        },
+        {
+            id: 5,
+            nit_client: 5555555555,
+            count_book: [15,2],
+            date_loan: "2023-09-01",
+            date_return: "2023-09-01",
+            status: "Overdue",
+            cost: 30000
+        },
+        {
+            id: 6,
+            nit_client: 5555555555,
+            count_book: [15, 7, 9],
+            date_loan: "2023-11-08",
+            date_return: "2023-11-08",
+            status: "Loan",
+            cost: 0
+        },
+        {
+            id: 7,
+            nit_client: 7777777777,
+            count_book: [12, 5, 8],        
+            date_loan: "2024-08-06",
+            date_return: "2024-08-06",
+            status: "Overdue",
+            cost: 40000
+        },
+        {
+            id: 8,
+            nit_client: 8888888888,
+            count_book: [12],        
+            date_loan: "2023-09-19",
+            date_return: "2023-01-15",
+            status: "Return",
+            cost: 0
+        },
+        {
+            id: 9,
+            nit_client: 8888888888,
+            count_book: [14, 5, 7],        
+            date_loan: "2023-04-16",
+            date_return: "2023-04-16",
+            status: "Overdue",
+            cost: 50000
+        },
+        {
+            id: 10,
+            nit_client: 1111111111,
+            count_book: [4],
+            date_loan: "2024-05-19",
+            date_return: "2024-05-19",
+            status: "Overdue",
+            cost: 55000
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.reservation.insertMany(
+    [
+        {
+            id: 1,
+            nit_client: 1234567890,
+            id_book: 19,
+            date_reservation: "2024-06-19",
+            date_end_reservation: "2024-06-26",
+            status: "Cancelled reservation"
+        },
+        {
+            id: 2,
+            nit_client: 9876543210,
+            id_book: 20,
+            date_reservation: "2022-12-10",
+            date_end_reservation: "2022-12-10",
+            status: "Reserved"
+        },
+        {
+            id: 3,
+            nit_client: 3333333333,
+            id_book: 12,
+            date_reservation: "2023-05-19",
+            date_end_reservation: "2023-05-19",
+            status: "Reserved"
+        },
+        {
+            id: 4,
+            nit_client: 4444444444,
+            id_book: 10,
+            date_reservation: "2023-05-19",
+            date_end_reservation: "2023-05-16",
+            status: "Loan"
+        },
+        {
+            id: 5,
+            nit_client: 5555555555,
+            id_book: 14,
+            date_reservation: "2023-04-08",
+            date_end_reservation: "2023-04-08",
+            status: "Cancelled reservation"
+        },
+        {
+            id: 6,
+            nit_client: 6666666666,
+            id_book: 13,
+            date_reservation: "2023-02-19",
+            date_end_reservation: "2023-02-26",
+            status: "Reserved"
+        },
+        {
+            id: 7,
+            nit_client: 7777777777,
+            id_book: 7,
+            date_reservation: "2023-06-19",
+            date_end_reservation: "2023-06-16",
+            status: "Reserved"
+        },
+        {
+            id: 8,
+            nit_client: 8888888888,
+            id_book: 5,
+            date_reservation: "2023-12-19",
+            date_end_reservation: "2023-12-26",
+            status: "Loan"
+        },
+        {
+            id: 9,
+            nit_client: 9999999999,
+            id_book: 6,
+            date_reservation: "2023-07-19",
+            date_end_reservation: "2023-07-26",
+            status: "Reserved"
+        },
+        {
+            id: 10,
+            nit_client: 1111111111,
+            id_book: 9,
+            date_reservation: "2023-12-09",
+            date_end_reservation: "2023-12-06",
+            status: "Cancelled reservation"
+        }
+    ]
+)

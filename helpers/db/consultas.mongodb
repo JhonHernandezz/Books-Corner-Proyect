@@ -1,0 +1,484 @@
+/*------------------------ ADMINISTRADOR ------------------------*/
+use("Books-Corner-Proyect")
+db.user.aggregate(
+    [
+        {
+            $match: {
+                name: /John/
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                permisos: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.user.aggregate(
+    [
+        {
+            $match: {
+                nit: 9876543210
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                permisos: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.user.aggregate(
+    [
+        {
+            $match: {
+                email: "maria.garcia@example.com"
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                permisos: 0
+            }
+        }
+    ]
+)
+
+
+
+
+use("Books-Corner-Proyect")
+db.book.aggregate(
+    [
+        {
+            $match: {
+                name: /El Señor de los Anillos: La Comunidad del Anillo/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.book.aggregate(
+    [
+        {
+            $match: {
+                autor: /Antoine/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.book.aggregate(
+    [
+        {
+            $match: {
+                categorie: /Accion/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.book.aggregate(
+    [
+        {
+            $match: {
+                year_of_publication: /1813/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+
+
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                nit_client: 1234567890
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                date_loan: /02/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                date_return: /2023-09/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                status: /Return/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+
+
+
+use("Books-Corner-Proyect")
+db.reservation.aggregate(
+    [
+        {
+            $match: {
+                nit_client: 1234567890
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.reservation.aggregate(
+    [
+        {
+            $match: {
+                date_reservation: /2023/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.reservation.aggregate(
+    [
+        {
+            $match: {
+                status: /Cancelled/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+/* ------------------------------------------------------------- */
+
+
+/*------------------------ EMPLOYEE ------------------------*/
+use("Books-Corner-Proyect")
+db.user.aggregate(
+    [
+        {
+            $match: {
+                role: /Customer/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.user.aggregate(
+    [
+        {
+            $match: {
+                nit: 1234567890,
+                role: /Customer/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.user.aggregate(
+    [
+        {
+            $match: {
+                name: /Jhon /,
+                role: /Customer/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.book.aggregate(
+    [
+        {
+            $match: {
+                name: /El Señor de los Anillos: La Comunidad del Anillo/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.book.aggregate(
+    [
+        {
+            $match: {
+                categorie: /Accion/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+
+
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                nit_client: 1234567890
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                date_loan: /02/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                date_return: /2023-09/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.loan.aggregate(
+    [
+        {
+            $match: {
+                status: /Return/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+
+
+
+use("Books-Corner-Proyect")
+db.reservation.aggregate(
+    [
+        {
+            $match: {
+                nit_client: 1234567890
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.reservation.aggregate(
+    [
+        {
+            $match: {
+                date_reservation: /2023/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+
+use("Books-Corner-Proyect")
+db.reservation.aggregate(
+    [
+        {
+            $match: {
+                status: /Cancelled/
+            }
+        },
+        {
+            $project: {
+                _id: 0
+            }
+        }
+    ]
+)
+/*----------------------------------------------------------*/
+
+/*------------------------ CUSTOMER ------------------------*/
+use("Books-Corner-Proyect")
+db.user.aggregate(
+    [
+        {
+            $lookup: {
+              from: "loan",
+              localField: "nit",
+              foreignField: "nit_client",
+              as: "fk_user_loan"
+            }
+        },
+        {
+            $lookup: {
+              from: "book",
+              localField: "fk_user_loan.count_book",
+              foreignField: "id",
+              as: "fk_loan_book"
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                nit: 1,
+                name: 1,
+                "fk_user_loan.count_book": 1,
+                "fk_loan_book.name": 1,
+                "fk_loan_book.photo": 1,
+                "fk_loan_book.autor": 1,
+                "fk_loan_book.year_of_publication": 1,
+                "fk_loan_book.categorie": 1,
+                "fk_loan_book.sinopsis": 1,
+                "fk_loan_book.editorial": 1,
+            }
+        }
+    ]
+)
+/*----------------------------------------------------------*/
+
+
+
+
+B
