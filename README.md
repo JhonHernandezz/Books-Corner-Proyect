@@ -10,8 +10,11 @@ El principal objetivo de este sistema es facilitar y mejorar el proceso de prés
 
 Además, este sistema busca minimizar la pérdida o extravío de libros manteniendo un registro exhaustivo de los libros prestados, fechas de vencimiento y multas en caso de retrasos. Esto contribuye a un control eficaz de los recursos y a una gestión eficiente de la biblioteca en su conjunto.
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> main
 ## OBJETIVOS ESPECÍFICOS
 
 - Implementar un sistema de gestión de inventario que permita mantener un registro actualizado de todos los libros disponibles en la biblioteca, incluyendo información detallada de cada libro, como título, autor, descripción y categoría.
@@ -31,6 +34,7 @@ Además, este sistema busca minimizar la pérdida o extravío de libros mantenie
 
 # DIAGRAMA
 
+<<<<<<< HEAD
 ![Diagrama](./img/Diagrama.png)
 
 
@@ -972,3 +976,6 @@ npm run server
 En tal caso de presentar algún error el código, comunicarse con el desarrollador.
 
 `EMAIL:` [Jhonhernandez.1899@gmail.com](mailto:Jhonhernandez.1899@gmail.com)
+=======
+![Diagrama](./img/Diagrama.png)
+>>>>>>> main
